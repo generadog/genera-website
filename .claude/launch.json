@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/jessmacbryde/serve_genera.py"],
+      "port": 3000
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "preview"],
+      "port": 3000
+    }
+  ]
+}
