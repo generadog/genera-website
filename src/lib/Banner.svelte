@@ -1,40 +1,88 @@
-<div class="banner v2">
-  <div class="text-wrap-balance hide-tablet">
-    <strong>Now live on Android</strong> — free &amp; unlimited during launch
+<script>
+  let visible = true;
+  function dismiss() { visible = false; }
+</script>
+
+{#if visible}
+  <div class="genera-banner" role="banner">
+    <div class="genera-banner__content">
+      <span class="genera-banner__text">
+        It's free to use — no setup fees, no catch.
+      </span>
+      <a
+        href="https://app.generasoftware.com/admin"
+        class="genera-banner__link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Sign up today ›</a>
+    </div>
+    <button class="genera-banner__close" on:click={dismiss} aria-label="Dismiss banner">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
   </div>
-  <a
-    cta_type="homepage_banner"
-    cta=""
-    cta_location="homepage"
-    href="https://wisprflow.onelink.me/1Nfg/banner"
-    class="banner_all-wrap w-inline-block"
-  >
-    <div class="banner_mega-wrapper">
-      <div class="banner_text"><strong>Now live on Android</strong> — free &amp; unlimited during launch</div>
-    </div>
-    <div class="banner_mega-wrapper hide">
-      <div class="banner_text">Genera raises $81M to build the Software OS.</div>
-    </div>
-    <div class="banner_mega-wrapper hide">
-      <div class="banner_text">Genera raises $81M to build the Software OS.</div>
-    </div>
-    <div class="banner_mega-wrapper hide">
-      <div class="banner_text">Genera raises $81M to build the Software OS.</div>
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 17 16" fill="none" class="banner_link-arrow">
-      <path d="M7.16675 10.6665L9.59768 8.23557C9.72788 8.10537 9.72788 7.8943 9.59768 7.7641L7.16675 5.33317" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  </a>
-  <a
-    cta_type="homepage_banner"
-    cta=""
-    cta_location="homepage"
-    href="https://wisprflow.onelink.me/1Nfg/banner"
-    class="banner_text-link hide-tablet w-inline-block"
-  >
-    <div>Download now</div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 17 16" fill="none" class="banner_link-arrow">
-      <path d="M7.16675 10.6665L9.59768 8.23557C9.72788 8.10537 9.72788 7.8943 9.59768 7.7641L7.16675 5.33317" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  </a>
-</div>
+{/if}
+
+<style>
+  .genera-banner {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    background: #0d2b24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 3rem;
+    gap: 0.75rem;
+  }
+
+  .genera-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .genera-banner__text {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.01em;
+  }
+
+  .genera-banner__link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  .genera-banner__link:hover { opacity: 0.75; }
+
+  .genera-banner__close {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .genera-banner__close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>

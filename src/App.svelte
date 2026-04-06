@@ -14,9 +14,6 @@
   import Footer from './lib/Footer.svelte';
 
   onMount(() => {
-    // Reveal hero animation wrapper on load
-    const el = document.querySelector('.hero_animation-wrapper');
-    if (el) el.style.opacity = '1';
 
     // Mobile marquee: shorten duration on small screens
     if (window.matchMedia('(max-width: 767px)').matches) {
@@ -39,7 +36,7 @@
     const referral = urlParams.get('referral');
     const promoCode = urlParams.get('promo_code');
     const { hostname } = window.location;
-    const domain = hostname.includes('wisprflow.ai') ? '.wisprflow.ai' : hostname;
+    const domain = hostname.includes('generasoftware.com') ? '.generasoftware.com' : hostname;
     const expiry = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
 
     if (referral) {
@@ -92,21 +89,19 @@
 
 <svelte:head>
   <meta charset="utf-8" />
-  <title>Genera Flow | Effortless Daycare Management</title>
-  <meta name="description" content="Flow makes bookings quick and clear with seamless daycare software. It is the fastest, smartest way to manage your daycare." />
-  <meta property="og:title" content="Genera Flow | Effortless Daycare Management" />
-  <meta property="og:description" content="Flow makes bookings quick and clear with seamless daycare software. It is the fastest, smartest way to manage your daycare." />
-  <meta property="og:image" content="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg" />
+  <title>Genera | A Better Breed of Software for Pet Businesses</title>
+  <meta name="description" content="Genera is the all-in-one software designed to help pet businesses save time, increase efficiency, and focus on what they do best: caring for pets. Free to use. No setup fees." />
+  <meta property="og:title" content="Genera | A Better Breed of Software for Pet Businesses" />
+  <meta property="og:description" content="Genera is the all-in-one software designed to help pet businesses save time, increase efficiency, and focus on what they do best: caring for pets. Free to use. No setup fees." />
+  <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Genera Flow | Effortless Daycare Management" />
-  <meta name="twitter:description" content="Flow makes bookings quick and clear with seamless daycare software. It is the fastest, smartest way to manage your daycare." />
-  <meta name="twitter:image" content="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/683c611aba65ade013982bcd_wispr-og-min.jpg" />
+  <meta name="twitter:title" content="Genera | A Better Breed of Software for Pet Businesses" />
+  <meta name="twitter:description" content="Genera is the all-in-one software designed to help pet businesses save time, increase efficiency, and focus on what they do best: caring for pets. Free to use. No setup fees." />
+  <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-site-verification" content="P6GGpe_kog7Zac5lr_zc-Riq4UO4NNedDoVSLBu2-C4" />
-  <link rel="shortcut icon" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/684b3be32acf9b372f54d041_ws-favi.png" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/68d27d1a8a10f417b5644527_flow-wc-v2.png" />
-  <link rel="canonical" href="https://wisprflow.ai" />
+  <link rel="shortcut icon" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png" type="image/png" />
+  <link rel="canonical" href="https://www.generasoftware.com" />
 
   <!-- Webflow shared CSS -->
   <link
@@ -185,23 +180,9 @@
     .dropdown-link:hover .dropdown-link-text { color: #034f46; }
     .text-link:hover .text-link-arrow { transform: translateX(100%); }
 
-    @media (min-width: 992px) {
-      .nav_component:has([apple-icon]), .nav_component:has([windows-icon]) { max-width: 66rem; }
-    }
-    @media (max-width: 991px) {
-      .nav_container-v2:has(.nav_button.w--open) {
-        border-bottom-color: transparent;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      .nav_container-v2:has(.nav_button.w--open) .nav_left-line,
-      .nav_container-v2:has(.nav_button.w--open) .nav_right-line { opacity: 1; }
-    }
+    /* Floating nav tweak */
     @media (min-width:992px) and (max-width:1281px) {
-      .banner { padding-top: 1rem; padding-bottom: 1rem; }
-      .nav_spacer { height: 3.5rem; }
-      .spacer-custom { padding-top: 15vw; }
-      .hero_animation-wrapper-v2 { margin-top: -23vw; }
+      .nav_spacer { height: 0.5rem; }
     }
     .use-cases_card:hover .use-cases_arrow-icon { transform: translate(10px, -10px); }
   </style>
