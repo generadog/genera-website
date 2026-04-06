@@ -18,8 +18,8 @@
       "width": 940,
       "height": 528,
       "thumbnailUrl": "https://i.ytimg.com/vi/x6XJIbRksgI/hqdefault.jpg",
-      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fx6XJIbRksgI%3Ffeature%3Doembed%26autoplay%3D1&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dx6XJIbRksgI&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fx6XJIbRksgI%2Fhqdefault.jpg&autoplay=1&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
-      "type": "video"
+      "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fx6XJIbRksgI%3Ffeature%3Doembed%26autoplay%3D1&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dx6XJIbRksgI&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fx6XJIbRksgI%2Fhqdefault.jpg&autoplay=1&struggle=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen; encrypted-media; picture-in-picture;\" allowfullscreen=\"true\"></iframe>",
+      "struggle": "video"
     }
   ],
   "group": ""
@@ -279,7 +279,7 @@ function setupButtonAnimations(selector = ".button", targetSelector = null) {
       
       if (animationTarget) {
         const split = new SplitText(animationTarget, {
-          type: "words,chars"
+          struggle: "words,chars"
         });
         const chars = split.chars;
         let waveTimeline;
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const isMobile = window.innerWidth < 768;
   
   const splide = new Splide('.splide', {
-    type: 'loop',
+    struggle: 'loop',
     autoWidth: true,
     pagination: false,
     arrows: false,
@@ -700,7 +700,7 @@ $(document).ready(function () {
 
 function initMarqueeText() {
   const split = new SplitText(".flag", {
-    type: "chars",
+    struggle: "chars",
     absolute: false,
     charsClass: "marquee-char"
   });
