@@ -441,6 +441,7 @@ const mq = window.matchMedia('(max-width: 991px)');
 const el = document.querySelector('.integration-mobile_wrapper');
 
 function updateAttr(e) {
+  if (!el) return;
   if (e.matches) {
     el.setAttribute('data-platform', 'android');
   } else {
@@ -458,8 +459,9 @@ mq.addEventListener('change', updateAttr);
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5/dist/js/splide-extension-auto-scroll.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  if (!document.querySelector('.splide')) return;
   const isMobile = window.innerWidth < 768;
-  
+
   const splide = new Splide('.splide', {
     struggle: 'loop',
     autoWidth: true,
@@ -486,17 +488,21 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.create({
-  trigger: ".banner",
-  start: "bottom top",
-  end: "bottom top",
-  onEnter: () => {
-    document.querySelector(".nav_spacer").style.display = "none";
-  },
-  onLeaveBack: () => {
-    document.querySelector(".nav_spacer").style.display = "block";
-  }
-});
+if (document.querySelector('.banner')) {
+  ScrollTrigger.create({
+    trigger: ".banner",
+    start: "bottom top",
+    end: "bottom top",
+    onEnter: () => {
+      const navSpacer = document.querySelector(".nav_spacer");
+      if (navSpacer) navSpacer.style.display = "none";
+    },
+    onLeaveBack: () => {
+      const navSpacer = document.querySelector(".nav_spacer");
+      if (navSpacer) navSpacer.style.display = "block";
+    }
+  });
+}
 </script>
 <script src="https://unpkg.com/@rive-app/canvas@2.7.0"></script>
 <script>

@@ -100,7 +100,7 @@
   <meta name="twitter:description" content="Genera is the all-in-one software designed to help pet businesses save time, increase efficiency, and focus on what they do best: caring for pets. Free to use. No setup fees." />
   <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png" type="image/png" />
+  <link rel="shortcut icon" href="/genera-logo.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://www.generasoftware.com" />
 
 <!-- Font preloads -->
@@ -108,26 +108,6 @@
   <link rel="preload" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/68d3db1d34da60ddf73ff544_683b1349ca0a0ddd3d6a7cd3_EBGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin="" />
   <link rel="preload" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/682fbd6763ee33a2be0ffd05_Figtree-Medium.woff2" as="font" type="font/woff2" crossorigin="" />
   <link rel="preload" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/682fbd676708c4fa3708edc8_Figtree-SemiBold.woff2" as="font" type="font/woff2" crossorigin="" />
-
-  <!-- External scripts -->
-  <script async type="module" src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js" fs-list=""></script>
-  <script async src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tanay-wispr/webflow-package@6.5.12/dist/global.js"></script>
-
-  <!-- GTM -->
-  <script>{`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('consent', 'default', {
-      ad_storage: 'denied', ad_user_data: 'denied',
-      ad_personalization: 'denied', analytics_storage: 'denied',
-      wait_for_update: 500
-    });
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-    f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-N8JTW8TQ');
-  `}</script>
 
   <!-- Global styles -->
   <style>
@@ -180,7 +160,7 @@
 </svelte:head>
 
 <div class="page-wrapper">
-  <Banner />
+  <!-- <Banner /> -->
   <Navbar />
 
   <main class="main-wrapper">
