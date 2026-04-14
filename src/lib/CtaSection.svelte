@@ -1,10 +1,52 @@
+<script>
+  const R = 3.8;
+  const paws = [
+    { x: 8,  y: 30, rot: 80,  delay: 0       },
+    { x: 5,  y: 55, rot: 100, delay: 0.15    },
+    { x: 20, y: 50, rot: 100, delay: 0.5     },
+    { x: 17, y: 25, rot: 80,  delay: 0.65    },
+    { x: 32, y: 20, rot: 80,  delay: 1.0     },
+    { x: 29, y: 45, rot: 100, delay: 1.15    },
+    { x: 44, y: 40, rot: 100, delay: 1.5     },
+    { x: 41, y: 15, rot: 80,  delay: 1.65    },
+    { x: 56, y: 10, rot: 80,  delay: 2.0     },
+    { x: 53, y: 35, rot: 100, delay: 2.15    },
+    { x: 68, y: 30, rot: 100, delay: 2.5     },
+    { x: 65, y: 5,  rot: 80,  delay: 2.65    },
+    { x: 64, y: 6,  rot: 260, delay: R       },
+    { x: 67, y: 31, rot: 280, delay: R + 0.15},
+    { x: 52, y: 36, rot: 280, delay: R + 0.5 },
+    { x: 55, y: 11, rot: 260, delay: R + 0.65},
+    { x: 40, y: 16, rot: 260, delay: R + 1.0 },
+    { x: 43, y: 41, rot: 280, delay: R + 1.15},
+    { x: 28, y: 46, rot: 280, delay: R + 1.5 },
+    { x: 31, y: 21, rot: 260, delay: R + 1.65},
+    { x: 16, y: 26, rot: 260, delay: R + 2.0 },
+    { x: 19, y: 51, rot: 280, delay: R + 2.15},
+    { x: 4,  y: 56, rot: 280, delay: R + 2.5 },
+    { x: 7,  y: 31, rot: 260, delay: R + 2.65},
+  ];
+</script>
+
 <section data-wf--pre-cta--variant="home" class="section_startflowing">
   <img src="/dogs/623426368_18056750699355570_8463801854914326260_n.webp" alt="" class="cta_bg" />
+
+  <!-- Small paw print trail -->
+  <div class="paw-trail" aria-hidden="true">
+    {#each paws as paw}
+      <div
+        class="paw-wrapper"
+        style="--rot: {paw.rot}deg; left: {paw.x}%; top: {paw.y}%; animation-delay: {paw.delay}s;"
+      >
+        <img src="/genera-logo.svg" alt="" />
+      </div>
+    {/each}
+  </div>
+
   <div class="padding-global padding-section-large">
     <div class="cta_content-wrap">
       <div class="cta_content">
         <div class="text-wrapper">
-          <div class="cta_dot hide"></div>
           <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 524 615" fill="none" preserveAspectRatio="none" class="cta_svg">
             <path d="M0.391602 319.953C359.892 319.953 412.294 -6.54721 244.392 1.45428C95.409 8.55414 -47.1084 513.452 522.892 612.952C646.17 634.931 943.303 651.895 1145.61 543.915" id="curve-cta"></path>
           </svg>
@@ -33,3 +75,43 @@
     </div>
   </div>
 </section>
+
+<style>
+  .section_startflowing {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .paw-trail {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .paw-wrapper {
+    position: absolute;
+    width: 20px;
+    transform: rotate(var(--rot));
+    opacity: 0;
+    animation: paw-appear 10s infinite;
+    will-change: opacity, transform;
+  }
+
+  .paw-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @keyframes paw-appear {
+    0%   { opacity: 0;    transform: rotate(var(--rot)) scale(0.5); }
+    4%   { opacity: 0.2;  transform: rotate(var(--rot)) scale(1.1); }
+    8%   { opacity: 0.18; transform: rotate(var(--rot)) scale(1);   }
+    14%  { opacity: 0.15; transform: rotate(var(--rot)) scale(1);   }
+    22%  { opacity: 0;    transform: rotate(var(--rot)) scale(1);   }
+    100% { opacity: 0;    transform: rotate(var(--rot)) scale(1);   }
+  }
+</style>

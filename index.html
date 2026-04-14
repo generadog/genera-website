@@ -331,53 +331,49 @@ setupButtonAnimations('.nav_menu-link'); // navbar links
 setupButtonAnimations(".dropdown-link", ".dropdown-link-text"); // Dropdown links
 </script>
 <script>
-  function initCtaDots() {
-    const ctaCount    = 100;
-    const ctaDuration = 20;
+  function initCtaPaws() {
+    const pawCount    = 30;
+    const pawDuration = 20;
     const pathOpts    = {
       path:        "#curve-cta",
       align:       "#curve-cta",
       alignOrigin: [0.5, 0.5],
+      autoRotate:  true,
     };
-    
+
     const curveElement = document.querySelector("#curve-cta");
-    if (!curveElement) {
-    	return;
-    }
+    if (!curveElement) return;
 
     const svgWrapper = curveElement.closest("svg").parentNode;
     svgWrapper.style.position = "relative";
 
-    for (let i = 0; i < ctaCount; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("cta_dot");
-      gsap.set(dot, { position: "absolute" });
-      svgWrapper.appendChild(dot);
+    for (let i = 0; i < pawCount; i++) {
+      const paw = document.createElement("img");
+      paw.src = "/genera-logo.svg";
+      paw.alt = "";
+      paw.style.cssText = "position:absolute;width:18px;height:auto;opacity:0.25;pointer-events:none;";
+      svgWrapper.appendChild(paw);
 
-      const tween = gsap.to(dot, {
-        duration:        ctaDuration,
+      const tween = gsap.to(paw, {
+        duration:        pawDuration,
         repeat:          -1,
         ease:            "none",
         motionPath:      pathOpts,
         immediateRender: false,
       });
-      tween.progress(i / ctaCount);
+      tween.progress(i / pawCount);
     }
   }
 
-  // create a GSAP matchMedia instance
   const mm = gsap.matchMedia();
 
-  // add a rule for screens ≥768px
   mm.add("(min-width: 768px)", () => {
-    // when this rule first matches, wait for load + a frame then init
     window.addEventListener("load", () => {
-      requestAnimationFrame(initCtaDots);
+      requestAnimationFrame(initCtaPaws);
     });
 
-    // return a cleanup function to remove the listener if rule no longer matches
     return () => {
-      window.removeEventListener("load", initCtaDots);
+      window.removeEventListener("load", initCtaPaws);
     };
   });
 </script>
