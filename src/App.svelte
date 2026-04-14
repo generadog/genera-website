@@ -103,16 +103,7 @@
   <link rel="shortcut icon" href="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png" type="image/png" />
   <link rel="canonical" href="https://www.generasoftware.com" />
 
-  <!-- Webflow shared CSS -->
-  <link
-    href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/css/flowsite-dev.webflow.shared.90180b654.min.css"
-    rel="stylesheet"
-    type="text/css"
-    integrity="sha384-kBgLZUazhgX7iHJwwQwRlQ2oU7AcTOvY7k9/65Y8rKpXm5mNIaqgGxSMTV0HApD9"
-    crossorigin="anonymous"
-  />
-
-  <!-- Font preloads -->
+<!-- Font preloads -->
   <link rel="preload" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/682fbe57a719a4ebf1fb56d5_EBGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin="" />
   <link rel="preload" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/68d3db1d34da60ddf73ff544_683b1349ca0a0ddd3d6a7cd3_EBGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin="" />
   <link rel="preload" href="https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/682fbd6763ee33a2be0ffd05_Figtree-Medium.woff2" as="font" type="font/woff2" crossorigin="" />

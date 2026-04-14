@@ -1,3 +1,13 @@
+/* Layer order:
+   theme < base (Preflight) < webflow-base < components < utilities < [unlayered]
+   - Webflow CSS overrides Tailwind Preflight (so headings/lists/etc. aren't reset)
+   - Tailwind utilities override Webflow CSS (so our components work correctly) */
+@layer theme, base, webflow-base, components, utilities;
+
+@import url("https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/css/flowsite-dev.webflow.shared.90180b654.min.css") layer(webflow-base);
+
+@import "tailwindcss";
+
 :root {
   --bg-color: #030303;
   --bg-secondary: #0a0a0a;
@@ -11,12 +21,6 @@
   --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --r: 12px;
   --r-lg: 24px;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html, body {
@@ -127,6 +131,11 @@ h1, h2, h3, h4 {
 }
 
 /* Animations */
+@keyframes logoTicker1 {
+  from { transform: translateX(0%); }
+  to   { transform: translateX(-100%); }
+}
+
 @keyframes fade-in-up {
   0% {
     opacity: 0;

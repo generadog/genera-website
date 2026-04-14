@@ -32,7 +32,7 @@
   <!-- Marquee strip (repeated 4 times for seamless loop) -->
   <div class="marquee_wrapper">
     {#each [0, 1, 2, 3] as _}
-      <div class="clients_cms-wrapper marquee-scroll w-dyn-list">
+      <div class="clients_cms-wrapper marquee-scroll w-dyn-list animate-[logoTicker1_60s_linear_infinite]">
         <div role="list" class="clients_cms-list w-dyn-items">
           {#each logos as logo}
             <div role="listitem" class="clients_cms-item w-dyn-item">
@@ -46,26 +46,6 @@
         </div>
       </div>
     {/each}
-
-    <div class="code-embed w-embed">
-      <style>
-        .clients_cms-wrapper {
-          animation: logoTicker1 60s linear infinite;
-        }
-        @keyframes logoTicker1 {
-          from { transform: translateX(0%); }
-          to   { transform: translateX(-100%); }
-        }
-        @media (min-width:992px) {
-          .clients_logo-image[alt="Clay"]  { max-width: 5rem; }
-          .clients_logo-image[alt="Nuuly"] { max-width: 7rem; }
-        }
-        @media (max-width:991px) {
-          .clients_logo-image[alt="Clay"]  { max-width: 4rem; }
-          .clients_logo-image[alt="Nuuly"] { max-width: 6rem; }
-        }
-      </style>
-    </div>
   </div>
 
   <div class="padding-global text-align-left">
