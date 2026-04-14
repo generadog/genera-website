@@ -19,7 +19,6 @@
       alt=""
       class="w-[200px] max-[640px]:w-[100px] h-auto grayscale"
     />
-    <span class="text-[clamp(5rem,14vw,13rem)] font-black tracking-[0.05em] text-[#003B46] leading-none font-['Montserrat',sans-serif]">GENERA</span>
   </div>
 
   <div
