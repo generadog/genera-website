@@ -23,7 +23,7 @@
   ];
 </script>
 
-<section class="section_app-integrations">
+<section class="section_app-integrations" style="min-height: 100vh;">
   <div class="padding-global padding-section-xlarge">
     <div class="container-large">
       <div class="integrations_grid">
@@ -79,11 +79,11 @@
 
 <style>
   .dog-avatar {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 10%;
-    border: 3px solid rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   }
 </style>

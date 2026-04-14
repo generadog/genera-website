@@ -137,6 +137,17 @@ h1, h2, h3, h4 {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* ── Testimonials overlaps CtaSection ── */
+.section_testimonials {
+  position: relative;
+  z-index: 1;
+}
+
+.section_startflowing {
+  margin-top: -180px;
+  padding-top: 220px;
+}
+
 /* ── Orange accent overrides (replacing Webflow purple #f0d7ff palette) ── */
 
 /* Very light tint — was #fbf4ff */
