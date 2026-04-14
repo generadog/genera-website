@@ -182,7 +182,6 @@
 
     <Testimonials />
     <CtaSection />
-    <AskAI />
   </main>
 
   <!-- OAuth error overlay -->

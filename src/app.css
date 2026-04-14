@@ -4,6 +4,8 @@
    - Tailwind utilities override Webflow CSS (so our components work correctly) */
 @layer theme, base, webflow-base, components, utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
 @import url("https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/css/flowsite-dev.webflow.shared.90180b654.min.css") layer(webflow-base);
 
 @import "tailwindcss";
@@ -18,9 +20,12 @@
   --border: rgba(0, 0, 0, 0.08);
   --bg-card: rgba(255, 255, 255, 0.6);
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --r: 12px;
   --r-lg: 24px;
+
+  /* Override Webflow purple accent (--base-color--dawn) with orange-200 */
+  --base-color--dawn: #fed7aa;
 }
 
 @layer base {
@@ -131,6 +136,40 @@ h1, h2, h3, h4 {
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.05);
 }
+
+/* ── Orange accent overrides (replacing Webflow purple #f0d7ff palette) ── */
+
+/* Very light tint — was #fbf4ff */
+.gs-hero_login-btn.last-used { background-color: #fff7ed !important; }
+
+/* Medium-light — was #e0aeff */
+.legal_link:hover { background-color: #fdba74 !important; }
+.legal_link.w--current { background-color: #fdba74 !important; }
+
+/* Bright accent — was #a75eff */
+.cs-hero_road-tablet { background-image: linear-gradient(#f9a862, #f97316) !important; }
+
+/* Muted medium — was #886dc2 */
+.wf_filter-dropdown-input:focus,
+.wf_filter-dropdown-input:active,
+.wf_filter-dropdown-input:focus-visible,
+.wf_filter-dropdown-input.is-tool:focus { outline-color: #d97706 !important; }
+
+/* Hardcoded #f0d7ff rules that don't use --base-color--dawn */
+.button.no-border                   { border-color: #fed7aa !important; }
+.nav_mobile-btn.no-border           { border-color: #fed7aa !important; }
+.nav_big-button.no-border           { border-color: #fed7aa !important; }
+.waitlist_form-btn.no-border        { border-color: #fed7aa !important; }
+.wl_btn2.no-border                  { border-color: #fed7aa !important; }
+.sms_cancel-btn.no-border           { border-color: #fed7aa !important; }
+.wf_dropdown-link:hover             { background-color: #fed7aa !important; }
+.wf_dropdown-link.w--current        { background-color: #fed7aa !important; }
+.wf_card-byline                     { color: #fb923c !important; }
+.wd_pill-dot.active                 { background-color: #fed7aa !important; }
+.student-pricing_step               { border-bottom-color: #fed7aa !important; }
+.cs-table_heading-cell.pink-bg      { background-color: #fed7aa !important; }
+.demo_bottom-gradient               { background-image: linear-gradient(#fff0, #fed7aabf) !important; }
+.all-blog_filter-wrap               { background-color: #fed7aa00; }
 
 /* Animations */
 @keyframes logoTicker1 {

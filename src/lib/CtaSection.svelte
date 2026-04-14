@@ -1,5 +1,5 @@
 <section data-wf--pre-cta--variant="home" class="section_startflowing">
-  <img src="https://placehold.co/1440x600/034F46/fff?text=" alt="" class="cta_bg" />
+  <img src="public/dogs/623426368_18056750699355570_8463801854914326260_n.webp" alt="" class="cta_bg" />
   <div class="padding-global padding-section-large">
     <div class="cta_content-wrap">
       <div class="cta_content">
