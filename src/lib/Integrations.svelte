@@ -5,26 +5,6 @@
 
         <!-- Left content -->
         <div id="w-node-integrations-left" class="integrations_left">
-          <div data-wf--integrations-light-color--variant="base" class="home_integrations_chips-div">
-            <div class="home_integrations_chip">
-              <img src="https://placehold.co/24x24/222/fff?text=A" loading="lazy" alt="" class="home_integrations_chip-logo apple" />
-              <div class="text-color-alternate text-weight-bold">iPhone</div>
-            </div>
-            <div class="home_integrations_chip">
-              <img src="https://placehold.co/24x24/222/fff?text=M" loading="lazy" alt="" class="home_integrations_chip-logo apple" />
-              <div class="text-color-alternate text-weight-bold">Mac</div>
-            </div>
-            <div class="home_integrations_chip">
-              <img src="https://placehold.co/24x24/222/fff?text=W" loading="lazy" alt="" class="home_integrations_chip-logo" />
-              <div class="text-color-alternate text-weight-bold">Windows</div>
-            </div>
-            <div class="home_integrations_chip">
-              <img loading="lazy" src="https://placehold.co/24x24/222/fff?text=An" alt="" class="home_integrations_chip-logo android" />
-              <div class="text-color-alternate text-weight-bold">Android</div>
-            </div>
-          </div>
-
-          <div class="spacer-large"></div>
           <h2 class="text-color-secondary">Everything you need. Nothing you don't.</h2>
           <div class="spacer-large"></div>
           <div class="max-width-small align-center">

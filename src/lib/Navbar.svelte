@@ -108,7 +108,6 @@
     {/if}
 
     <!-- Decorative lines -->
-    <div class="absolute top-1/2 -translate-y-1/2 left-[3.25rem] w-px h-[1.125rem] bg-black/10 pointer-events-none max-[860px]:hidden"></div>
     <div class="absolute top-1/2 -translate-y-1/2 right-[3.25rem] w-px h-[1.125rem] bg-black/10 pointer-events-none max-[860px]:hidden"></div>
   </nav>
 </div>
