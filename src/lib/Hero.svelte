@@ -29,8 +29,8 @@
     <!-- Dashboard illustration card -->
     <div class="w-full max-w-3xl">
       <div class="bg-white rounded-[16px] shadow-[0_4px_6px_rgba(0,59,70,0.05),0_20px_60px_rgba(0,59,70,0.12)] overflow-hidden border border-[rgba(0,59,70,0.08)]">
-        <div class="flex items-center gap-3 py-[0.875rem] px-5 bg-[#003B46] border-b border-white/10">
-          <div class="flex gap-[0.375rem]">
+        <div class="flex items-center gap-3 py-3.5 px-5 bg-[#003B46] border-b border-white/10">
+          <div class="flex gap-1.5">
             <span class="w-[10px] h-[10px] rounded-full bg-[#FF5F57]"></span>
             <span class="w-[10px] h-[10px] rounded-full bg-[#FEBC2E]"></span>
             <span class="w-[10px] h-[10px] rounded-full bg-[#28C840]"></span>
@@ -40,76 +40,76 @@
         <div class="p-6 flex flex-col gap-5 bg-[#f8fbfc]">
 
           <!-- Stats row -->
-          <div class="grid grid-cols-3 gap-[0.75rem]">
+          <div class="grid grid-cols-3 gap-3">
             <div class="bg-white rounded-[10px] p-4 border border-[rgba(0,59,70,0.08)] text-center">
-              <div class="text-2xl font-extrabold text-[#003B46] leading-none mb-[0.375rem]">48</div>
+              <div class="text-2xl font-extrabold text-[#003B46] leading-none mb-1.5">48</div>
               <div class="text-[0.75rem] text-[#6b8a91] font-medium">Active Bookings</div>
             </div>
             <div class="bg-white rounded-[10px] p-4 border border-[rgba(0,59,70,0.08)] text-center">
-              <div class="text-2xl font-extrabold text-[#003B46] leading-none mb-[0.375rem]">£2,840</div>
+              <div class="text-2xl font-extrabold text-[#003B46] leading-none mb-1.5">£2,840</div>
               <div class="text-[0.75rem] text-[#6b8a91] font-medium">Monthly Revenue</div>
             </div>
             <div class="bg-white rounded-[10px] p-4 border border-[rgba(0,59,70,0.08)] text-center">
-              <div class="text-2xl font-extrabold text-[#003B46] leading-none mb-[0.375rem]">7</div>
+              <div class="text-2xl font-extrabold text-[#003B46] leading-none mb-1.5">7</div>
               <div class="text-[0.75rem] text-[#6b8a91] font-medium">Staff Members</div>
             </div>
           </div>
 
           <!-- Dog face images -->
-          <div class="grid grid-cols-4 max-[640px]:grid-cols-2 gap-[0.75rem]">
-            <div class="bg-white rounded-[10px] py-[0.875rem] px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
+          <div class="grid grid-cols-4 max-[640px]:grid-cols-2 gap-3">
+            <div class="bg-white rounded-[10px] py-3.5 px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
               <img
                 src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=128&q=80"
                 alt="Buddy dog face"
-                class="w-12 h-12 rounded-full object-cover mx-auto mb-[0.375rem]"
+                class="w-12 h-12 rounded-full object-cover mx-auto mb-1.5"
                 loading="lazy"
               />
-              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-[0.375rem]">Buddy</div>
+              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-1.5">Buddy</div>
               <span class="text-[0.6875rem] font-semibold py-[0.2rem] px-2 rounded-full inline-block bg-[rgba(0,59,70,0.1)] text-[#003B46]">Today</span>
             </div>
-            <div class="bg-white rounded-[10px] py-[0.875rem] px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
+            <div class="bg-white rounded-[10px] py-3.5 px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
               <img
                 src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=128&q=80"
                 alt="Luna dog face"
-                class="w-12 h-12 rounded-full object-cover mx-auto mb-[0.375rem]"
+                class="w-12 h-12 rounded-full object-cover mx-auto mb-1.5"
                 loading="lazy"
               />
-              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-[0.375rem]">Luna</div>
+              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-1.5">Luna</div>
               <span class="text-[0.6875rem] font-semibold py-[0.2rem] px-2 rounded-full inline-block bg-[rgba(0,59,70,0.1)] text-[#003B46]">Today</span>
             </div>
-            <div class="bg-white rounded-[10px] py-[0.875rem] px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
+            <div class="bg-white rounded-[10px] py-3.5 px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
               <img
                 src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=128&q=80"
                 alt="Max dog face"
-                class="w-12 h-12 rounded-full object-cover mx-auto mb-[0.375rem]"
+                class="w-12 h-12 rounded-full object-cover mx-auto mb-1.5"
                 loading="lazy"
               />
-              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-[0.375rem]">Max</div>
+              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-1.5">Max</div>
               <span class="text-[0.6875rem] font-semibold py-[0.2rem] px-2 rounded-full inline-block bg-[rgba(194,159,85,0.15)] text-[#8a6e2e]">Tomorrow</span>
             </div>
-            <div class="bg-white rounded-[10px] py-[0.875rem] px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
+            <div class="bg-white rounded-[10px] py-3.5 px-2 border border-[rgba(0,59,70,0.08)] text-center transition-[transform,box-shadow] duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_4px_12px_rgba(0,59,70,0.1)]">
               <img
                 src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=128&q=80"
                 alt="Rex dog face"
-                class="w-12 h-12 rounded-full object-cover mx-auto mb-[0.375rem]"
+                class="w-12 h-12 rounded-full object-cover mx-auto mb-1.5"
                 loading="lazy"
               />
-              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-[0.375rem]">Rex</div>
+              <div class="text-[0.8125rem] font-semibold text-[#1a2e35] mb-1.5">Rex</div>
               <span class="text-[0.6875rem] font-semibold py-[0.2rem] px-2 rounded-full inline-block bg-[rgba(194,159,85,0.15)] text-[#8a6e2e]">Tomorrow</span>
             </div>
           </div>
 
           <!-- Mini route bar -->
-          <div class="bg-white rounded-[10px] py-[0.875rem] px-4 border border-[rgba(0,59,70,0.08)] flex items-center gap-4 flex-wrap">
+          <div class="bg-white rounded-[10px] py-3.5 px-4 border border-[rgba(0,59,70,0.08)] flex items-center gap-4 flex-wrap">
             <span class="text-[0.75rem] font-bold text-[#003B46] tracking-[0.05em] uppercase whitespace-nowrap">Today's Route</span>
             <div class="flex items-center gap-2 flex-wrap">
-              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-[0.625rem] rounded-[4px]">Home</span>
+              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-2.5 rounded-[4px]">Home</span>
               <span class="text-[#C29F55] font-bold text-[0.875rem]">→</span>
-              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-[0.625rem] rounded-[4px]">Park A</span>
+              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-2.5 rounded-[4px]">Park A</span>
               <span class="text-[#C29F55] font-bold text-[0.875rem]">→</span>
-              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-[0.625rem] rounded-[4px]">Park B</span>
+              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-2.5 rounded-[4px]">Park B</span>
               <span class="text-[#C29F55] font-bold text-[0.875rem]">→</span>
-              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-[0.625rem] rounded-[4px]">Drop off</span>
+              <span class="text-[0.8125rem] font-medium text-[#1a2e35] bg-[rgba(0,59,70,0.06)] py-1 px-2.5 rounded-[4px]">Drop off</span>
             </div>
           </div>
 

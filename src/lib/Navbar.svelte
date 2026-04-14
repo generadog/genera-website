@@ -35,11 +35,11 @@
       {scrolled
       ? 'bg-[#fdfde9] border-black/10'
       : 'bg-[#fdfde9] border-black/10'}
-      {mobileOpen ? 'rounded-t-[999px] rounded-b-[1.5rem]' : 'rounded'}">
-    <div class="flex items-center px-5 h-[3.75rem] gap-2">
+      {mobileOpen ? 'rounded-t-full rounded-b-3xl' : 'rounded'}">
+    <div class="flex items-center px-5 h-15 gap-2">
       <!-- Brand -->
       <a href="/" id="w-node-nav-brand" class="flex items-center gap-2 no-underline shrink-0 mr-2" aria-label="Genera Home">
-        <img src="/genera-logo.svg" loading="eager" alt="Genera Logo" class="w-[1.625rem] h-[1.625rem] object-contain" />
+        <img src="/genera-logo.svg" loading="eager" alt="Genera Logo" class="w-6.5 h-6.5 object-contain" />
         <span class="text-[0.9375rem] font-extrabold tracking-[0.08em] text-[#1a1a1a]">GENERA</span>
       </a>
 
@@ -49,7 +49,7 @@
           <li>
             <a
               href={link.href}
-              class="block px-[0.7rem] py-[0.375rem] text-[0.8125rem] font-medium text-[#2d2d2d] no-underline rounded-full whitespace-nowrap transition-[color,background] duration-150 ease-in-out hover:text-black hover:bg-black/5"
+              class="block px-[0.7rem] py-1.5 text-[0.8125rem] font-medium text-[#2d2d2d] no-underline rounded-full whitespace-nowrap transition-[color,background] duration-150 ease-in-out hover:text-black hover:bg-black/5"
               >{link.label}</a>
           </li>
         {/each}
@@ -75,9 +75,9 @@
           on:click={() => (mobileOpen = !mobileOpen)}
           aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={mobileOpen}>
-          <span class="block w-[1.125rem] h-[1.5px] bg-[#1a1a1a] rounded-[2px] origin-center transition-[transform,opacity] duration-[250ms] ease-in-out {mobileOpen ? 'translate-y-[5.5px] rotate-45' : ''}"></span>
-          <span class="block w-[1.125rem] h-[1.5px] bg-[#1a1a1a] rounded-[2px] origin-center transition-[transform,opacity] duration-[250ms] ease-in-out {mobileOpen ? 'opacity-0 scale-x-0' : ''}"></span>
-          <span class="block w-[1.125rem] h-[1.5px] bg-[#1a1a1a] rounded-[2px] origin-center transition-[transform,opacity] duration-[250ms] ease-in-out {mobileOpen ? '-translate-y-[5.5px] -rotate-45' : ''}"></span>
+          <span class="block w-4.5 h-[1.5px] bg-[#1a1a1a] rounded-[2px] origin-center transition-[transform,opacity] duration-[250ms] ease-in-out {mobileOpen ? 'translate-y-[5.5px] rotate-45' : ''}"></span>
+          <span class="block w-4.5 h-[1.5px] bg-[#1a1a1a] rounded-[2px] origin-center transition-[transform,opacity] duration-[250ms] ease-in-out {mobileOpen ? 'opacity-0 scale-x-0' : ''}"></span>
+          <span class="block w-4.5 h-[1.5px] bg-[#1a1a1a] rounded-[2px] origin-center transition-[transform,opacity] duration-[250ms] ease-in-out {mobileOpen ? '-translate-y-[5.5px] -rotate-45' : ''}"></span>
         </button>
       </div>
     </div>
@@ -85,16 +85,16 @@
     <!-- Mobile menu -->
     {#if mobileOpen}
       <div class="border-t border-black/[0.06] animate-[slideDown_0.18s_ease] min-[861px]:hidden" role="navigation" aria-label="Mobile navigation">
-        <ul role="list" class="list-none m-0 px-4 pt-2 pb-[0.875rem] flex flex-col gap-[0.125rem]">
+        <ul role="list" class="list-none m-0 px-4 pt-2 pb-3.5 flex flex-col gap-0.5">
           {#each navLinks as link}
             <li>
               <a
                 href={link.href}
-                class="block px-3 py-[0.625rem] text-[0.9375rem] font-medium text-[#1a1a1a] no-underline rounded-lg transition-[background] duration-[120ms] ease-in-out hover:bg-black/5"
+                class="block px-3 py-2.5 text-[0.9375rem] font-medium text-[#1a1a1a] no-underline rounded-lg transition-[background] duration-[120ms] ease-in-out hover:bg-black/5"
                 on:click={() => (mobileOpen = false)}>{link.label}</a>
             </li>
           {/each}
-          <li class="h-px bg-black/[0.06] my-[0.375rem] mx-3"></li>
+          <li class="h-px bg-black/[0.06] my-1.5 mx-3"></li>
           <li>
             <a
               href="https://app.generasoftware.com/admin"
@@ -108,7 +108,7 @@
     {/if}
 
     <!-- Decorative lines -->
-    <div class="absolute top-1/2 -translate-y-1/2 right-[3.25rem] w-px h-[1.125rem] bg-black/10 pointer-events-none max-[860px]:hidden"></div>
+    <div class="absolute top-1/2 -translate-y-1/2 right-13 w-px h-4.5 bg-black/10 pointer-events-none max-[860px]:hidden"></div>
   </nav>
 </div>
 

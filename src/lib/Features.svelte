@@ -10,7 +10,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
       <!-- Left: image/lottie -->
-      <div class="relative rounded-2xl overflow-hidden bg-stone-100 aspect-[4/3]">
+      <div class="relative rounded-2xl overflow-hidden bg-stone-100 aspect-4/3">
         <img
           src="https://placehold.co/700x500/f0f0e8/888?text=Genera+AI"
           alt=""
@@ -223,7 +223,7 @@
       </div>
 
       <!-- Right: device mockups -->
-      <div class="relative rounded-2xl overflow-hidden bg-stone-100 aspect-[4/3]">
+      <div class="relative rounded-2xl overflow-hidden bg-stone-100 aspect-4/3">
         <img src="https://placehold.co/700x500/f0f0e8/888?text=Dashboard" alt="" class="w-full h-full object-cover" />
         <div class="absolute inset-0 flex items-end justify-center pb-4">
           <img src="https://placehold.co/600x400/eee/888?text=Dashboard+UI" alt="" class="w-4/5 rounded-xl shadow-xl" />

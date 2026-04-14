@@ -5,7 +5,7 @@
 
 {#if visible}
   <div
-    class="sticky top-0 z-[1001] bg-[#0d2b24] flex items-center justify-center py-[0.625rem] px-12 gap-[0.75rem]"
+    class="sticky top-0 z-[1001] bg-[#0d2b24] flex items-center justify-center py-2.5 px-12 gap-3"
     role="banner"
   >
     <div class="flex items-center justify-center gap-2 flex-wrap">
