@@ -34,9 +34,6 @@
               </a>
             </div>
           </div>
-
-          <div class="spacer-xlarge"></div>
-
         </div>
       </div>
     </div>

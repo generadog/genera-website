@@ -31,7 +31,7 @@
       {#each [0, 1, 2] as _}
         {#each photos as src}
           <div class="photo-tile">
-            <img {src} alt="Dog daycare photo" loading="lazy" />
+            <img {src} alt="Dog at daycare" loading="lazy" />
           </div>
         {/each}
       {/each}

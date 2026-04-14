@@ -40,7 +40,7 @@
       <!-- Brand -->
       <a href="/" id="w-node-nav-brand" class="flex items-center gap-2 no-underline shrink-0 mr-2" aria-label="Genera Home">
         <img src="/genera-logo.svg" loading="eager" alt="Genera Logo" class="w-6.5 h-6.5 object-contain" />
-        <span class="text-[0.9375rem] font-extrabold tracking-[0.08em] text-[#1a1a1a]">GENERA</span>
+        <span class="text-[1.4rem] font-extrabold tracking-[0.08em] text-[#003b46]">GENERA</span>
       </a>
 
       <!-- Desktop links -->
