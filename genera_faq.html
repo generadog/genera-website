@@ -38,7 +38,7 @@
 
     /* ─── Reset ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html, body { margin: 0; padding: 0; } html { scroll-behavior: smooth; } body { overflow-x: hidden; }
     body {
       font-family: var(--font-b);
       color: var(--charcoal);
@@ -278,7 +278,7 @@
     ═══════════════════════════════════════════════════════════ */
     .hero {
       background: var(--forest);
-      padding: 9rem 1.5rem 6rem;
+      padding: 7rem 1.5rem 3.5rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -349,7 +349,7 @@
     ═══════════════════════════════════════════════════════════ */
     .faq-section {
       background: var(--white);
-      padding: 5.5rem 1.5rem;
+      padding: 3.5rem 1.5rem;
     }
     .faq-wrap {
       max-width: 800px;
@@ -550,7 +550,7 @@
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
     @media (max-width: 768px) {
-      :root { --sp: 4rem 1.25rem; }
+      :root { --sp: 2.5rem 1.25rem; }
       .nav-links, .nav-cta { display: none; }
       .ham { display: flex; }
       .faq-trigger { padding: 1.25rem 1.25rem; font-size: .95rem; }
@@ -575,7 +575,7 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
 
-    <a href="genera_homepage.html" class="nav-logo" aria-label="Genera home">
+    <a href="https://www.generasoftware.com" target="_top" class="nav-logo" aria-label="Genera home">
       <img
         src="https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png"
         alt="Genera paw logo"
@@ -587,15 +587,16 @@
     </a>
 
     <div class="nav-links">
-      <a href="genera_features.html">Features</a>
-      <a href="genera_our-story.html">Our Story</a>
-      <a href="genera_blog.html">Blog</a>
-      <a href="genera_faq.html" class="active">FAQs</a>
-      <a href="genera_contact.html">Contact</a>
+      <a href="https://www.generasoftware.com" target="_top" >Home</a>
+      <a href="https://www.generasoftware.com/features" target="_top" >Features</a>
+      <a href="https://www.generasoftware.com/aboutus" target="_top" >Our Story</a>
+      <a href="https://www.generasoftware.com/blog" target="_top" >Blog</a>
+      <a href="https://www.generasoftware.com/faqs" target="_top" class="active">FAQs</a>
+      <a href="https://www.generasoftware.com/contact" target="_top" >Contact</a>
     </div>
 
     <div class="nav-cta">
-      <a href="https://app.generasoftware.com/admin" class="btn btn-gold">Start Free Trial</a>
+      <a href="mailto:info@generasoftware.com?subject=Start%20Free%20Trial" target="_top" class="btn btn-gold">Start Free Trial</a>
     </div>
 
     <button class="ham" id="ham" aria-label="Open menu" aria-expanded="false">
@@ -607,14 +608,14 @@
 
 <!-- Mobile menu overlay -->
 <div class="mob-menu" id="mobMenu" role="dialog" aria-label="Navigation">
-  <a href="genera_features.html" onclick="closeMenu()">Features</a>
-  <a href="genera_our-story.html" onclick="closeMenu()">Our Story</a>
-  <a href="genera_blog.html" onclick="closeMenu()">Blog</a>
-  <a href="genera_faq.html" onclick="closeMenu()">FAQs</a>
-  <a href="genera_contact.html" onclick="closeMenu()">Contact</a>
+  <a href="https://www.generasoftware.com/features" target="_top" onclick="closeMenu()">Features</a>
+  <a href="https://www.generasoftware.com/aboutus" target="_top" onclick="closeMenu()">Our Story</a>
+  <a href="https://www.generasoftware.com/blog" target="_top" onclick="closeMenu()">Blog</a>
+  <a href="https://www.generasoftware.com/faqs" target="_top" onclick="closeMenu()">FAQs</a>
+  <a href="https://www.generasoftware.com/contact" target="_top" onclick="closeMenu()">Contact</a>
   <div class="mob-btns">
-    <a href="https://app.generasoftware.com/admin" class="btn btn-gold btn-lg">Start Free Trial</a>
-    <a href="mailto:info@duncansdogco.com?subject=I'd%20like%20to%20know%20more%20about%20Genera" class="btn btn-outline-w btn-lg">Book a Demo</a>
+    <a href="mailto:info@generasoftware.com?subject=Start%20Free%20Trial" target="_top" class="btn btn-gold btn-lg">Start Free Trial</a>
+    <a href="mailto:info@generasoftware.com?subject=I'd%20like%20to%20know%20more%20about%20Genera" class="btn btn-outline-w btn-lg">Book a Demo</a>
   </div>
 </div>
 
@@ -651,7 +652,7 @@
         </button>
         <div class="faq-body" id="faq-body-1">
           <div class="faq-body-inner">
-            <p class="faq-body-content">Genera offers a generous 3-month free trial with full access to every feature — no credit card required, no hidden charges. After your trial, pricing is simple and transparent. We believe every pet business deserves great software, and we want you to experience the full platform before you commit to anything.</p>
+            <p class="faq-body-content">Right now, yes — completely. We are currently onboarding our <strong>Founding One Hundred</strong>: the first 100 pet businesses to join Genera get 3 months completely free, with no credit card required and no commitment. You also get one-on-one onboarding support, priority access to new features, and locked-in founding member pricing that stays with you forever. After your free period, pricing is simple and transparent — and founding members always pay less than anyone who joins after. Spots are limited, so if you are reading this, now is the time.</p>
           </div>
         </div>
       </div>
@@ -741,7 +742,7 @@
         </button>
         <div class="faq-body" id="faq-body-7">
           <div class="faq-body-inner">
-            <p class="faq-body-content">Our UK-based support team is here for you. Email us anytime at <a href="mailto:info@duncansdogco.com" style="color:var(--forest);font-weight:600;border-bottom:1px solid var(--gold);">info@duncansdogco.com</a> and we will get back to you within one working day. We also welcome feature requests — we are building Genera with the industry, not just for it.</p>
+            <p class="faq-body-content">Our UK-based support team is here for you. Email us anytime at <a href="mailto:info@generasoftware.com" style="color:var(--forest);font-weight:600;border-bottom:1px solid var(--gold);">info@generasoftware.com</a> and we will get back to you within one working day. We also welcome feature requests — we are building Genera with the industry, not just for it.</p>
           </div>
         </div>
       </div>
@@ -806,10 +807,10 @@
       We are a small team and we read every message. Get in touch and we will help you figure out if Genera is right for your business.
     </p>
     <div class="still-btns">
-      <a href="https://app.generasoftware.com/admin" class="btn btn-gold btn-lg">
+      <a href="mailto:info@generasoftware.com?subject=Start%20Free%20Trial" target="_top" class="btn btn-gold btn-lg">
         Start 3-Month Free Trial
       </a>
-      <a href="mailto:info@duncansdogco.com?subject=Question%20about%20Genera" class="btn btn-forest btn-lg">
+      <a href="mailto:info@generasoftware.com?subject=Question%20about%20Genera" class="btn btn-forest btn-lg">
         Email Us
       </a>
     </div>
@@ -838,15 +839,15 @@
       </p>
       <div class="footer-socials">
         <!-- Instagram -->
-        <a href="https://instagram.com/generasoftware" class="social-btn" aria-label="Instagram">
+        <a href="https://www.instagram.com/generadogsoftware/?hl=en" class="social-btn" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
         <!-- TikTok -->
-        <a href="https://tiktok.com/@generasoftware" class="social-btn" aria-label="TikTok">
+        <a href="https://www.tiktok.com/@genera.dog" class="social-btn" aria-label="TikTok">
           <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
         </a>
         <!-- Facebook -->
-        <a href="https://facebook.com/generasoftware" class="social-btn" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61555766818481" class="social-btn" aria-label="Facebook">
           <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
       </div>
@@ -856,10 +857,10 @@
     <div>
       <p class="fcol-title">Product</p>
       <ul class="fcol-links">
-        <li><a href="genera_features.html">Features</a></li>
-        <li><a href="https://app.generasoftware.com/admin">Free Trial</a></li>
-        <li><a href="genera_faq.html">FAQs</a></li>
-        <li><a href="genera_blog.html">Blog</a></li>
+        <li><a href="https://www.generasoftware.com/features" target="_top" >Features</a></li>
+        <li><a href="mailto:info@generasoftware.com?subject=Start%20Free%20Trial">Free Trial</a></li>
+        <li><a href="https://www.generasoftware.com/faqs" target="_top" >FAQs</a></li>
+        <li><a href="https://www.generasoftware.com/blog" target="_top" >Blog</a></li>
       </ul>
     </div>
 
@@ -867,9 +868,9 @@
     <div>
       <p class="fcol-title">Company</p>
       <ul class="fcol-links">
-        <li><a href="genera_our-story.html">Our Story</a></li>
-        <li><a href="genera_contact.html">Contact</a></li>
-        <li><a href="mailto:info@duncansdogco.com">Email Us</a></li>
+        <li><a href="https://www.generasoftware.com/aboutus" target="_top" >Our Story</a></li>
+        <li><a href="https://www.generasoftware.com/contact" target="_top" >Contact</a></li>
+        <li><a href="mailto:info@generasoftware.com">Email Us</a></li>
       </ul>
     </div>
 
@@ -877,9 +878,9 @@
     <div>
       <p class="fcol-title">Legal</p>
       <ul class="fcol-links">
-        <li><a href="https://generasoftware.com/privacy">Privacy Policy</a></li>
-        <li><a href="https://generasoftware.com/terms">Terms of Service</a></li>
-        <li><a href="https://generasoftware.com/gdpr">GDPR</a></li>
+        <li><a href="https://www.generasoftware.com/privacy-policy" target="_top" >Privacy Policy</a></li>
+        <li><a href="https://www.generasoftware.com/terms" target="_top" >Terms of Service</a></li>
+        <li><a href="https://www.generasoftware.com/gdpr" target="_top" >GDPR</a></li>
       </ul>
     </div>
 
@@ -894,8 +895,6 @@
     </div>
   </div>
 </footer>
-
-
 <!-- ════════════════════════════════════════════════════════════
      SCRIPTS
 ════════════════════════════════════════════════════════════ -->
@@ -966,7 +965,23 @@
       }
     });
   });
-</script>
 
+  /* ── Auto-resize iframe in Wix ──────────────────────────── */
+  function sendHeight() {
+    var h = document.documentElement.scrollHeight;
+    window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
+    window.parent.postMessage({ type: 'resize', height: h }, '*');
+  }
+  window.addEventListener('load', function() {
+    sendHeight();
+    setTimeout(sendHeight, 500);
+    setTimeout(sendHeight, 1500);
+    setTimeout(sendHeight, 3000);
+  });
+  window.addEventListener('resize', sendHeight);
+  if (window.ResizeObserver) {
+    new ResizeObserver(sendHeight).observe(document.body);
+  }
+</script>
 </body>
 </html>
