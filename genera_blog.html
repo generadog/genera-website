@@ -671,7 +671,12 @@
 
   /* ── Auto-resize iframe in Wix ──────────────────────────── */
   function sendHeight() {
-    var h = document.documentElement.scrollHeight;
+    var els = document.body.children, h = 0;
+    for (var i = 0; i < els.length; i++) {
+      var b = els[i].getBoundingClientRect().bottom + window.scrollY;
+      if (b > h) h = b;
+    }
+    h = Math.ceil(h) || document.documentElement.scrollHeight;
     window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
     window.parent.postMessage({ type: 'resize', height: h }, '*');
   }
