@@ -1,0 +1,26 @@
+{
+  "name": "genera-remotion-reels",
+  "version": "1.0.0",
+  "description": "Remotion social media reels for Genera",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "render": "remotion render DefraEp3 out/DefraEp3.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.288",
+    "@remotion/google-fonts": "4.0.288",
+    "@remotion/motion-blur": "^4.0.288",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remotion": "4.0.288"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.4.0"
+  },
+  "remotion": {
+    "entryPoint": "src/index.ts"
+  }
+}
