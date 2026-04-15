@@ -1,12 +1,10 @@
 /* Layer order:
-   theme < base (Preflight) < webflow-base < components < utilities < [unlayered]
-   - Webflow CSS overrides Tailwind Preflight (so headings/lists/etc. aren't reset)
-   - Tailwind utilities override Webflow CSS (so our components work correctly) */
-@layer theme, base, webflow-base, components, utilities;
+   theme < base (Preflight) < components < utilities < [unlayered]
+   - Webflow CSS is loaded via <link> in index.html (unlayered, highest priority)
+   - Tailwind utilities are in @layer utilities */
+@layer theme, base, components, utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-
-@import url("https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/css/flowsite-dev.webflow.shared.90180b654.min.css") layer(webflow-base);
 
 @import "tailwindcss";
 
