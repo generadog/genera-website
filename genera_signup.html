@@ -292,6 +292,128 @@
     }
     .benefit-card p { font-size: .875rem; color: var(--grey-text); line-height: 1.7; }
 
+    /* FOUNDING 100 */
+    .founding {
+      background: var(--gold);
+      padding: var(--sp);
+    }
+    .founding-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .founding-left .label { color: rgba(0,0,0,.45); }
+    .founding-left .h2 {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.8vw, 2.75rem);
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+    .founding-left > p {
+      color: rgba(0,0,0,.6);
+      font-size: .975rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .found-list {
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      margin-bottom: 2rem;
+    }
+    .found-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+    .found-list li::before {
+      content: '✓';
+      font-weight: 700;
+      font-size: .85rem;
+      color: var(--charcoal);
+      background: rgba(0,0,0,.12);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .08rem;
+    }
+    .btn-outline-d {
+      background: transparent;
+      color: var(--charcoal);
+      border: 2px solid rgba(0,0,0,.35);
+    }
+    .btn-outline-d:hover {
+      background: rgba(0,0,0,.08);
+      border-color: rgba(0,0,0,.6);
+    }
+    .founding-card {
+      background: var(--charcoal);
+      border-radius: var(--r-lg);
+      padding: 2.5rem;
+      color: var(--white);
+      text-align: center;
+    }
+    .spots-lbl {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: .75rem;
+    }
+    .spots-num {
+      font-family: var(--font-h);
+      font-size: 5.5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: .25rem;
+    }
+    .spots-total {
+      font-size: .8rem;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 1.5rem;
+    }
+    .progress-track {
+      background: rgba(255,255,255,.1);
+      border-radius: 999px;
+      height: 7px;
+      margin: 1.5rem 0 .5rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background: var(--gold);
+      height: 100%;
+      width: 27%;
+      border-radius: 999px;
+    }
+    .progress-note {
+      font-size: .75rem;
+      color: rgba(255,255,255,.35);
+      text-align: right;
+      margin-bottom: 1.5rem;
+    }
+    .founding-card > p {
+      font-size: .875rem;
+      color: rgba(255,255,255,.55);
+      text-align: center;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .founding-card .btn { width: 100%; }
+
     /* FINAL CTA */
     .final-cta {
       background: var(--grey-light);
@@ -343,6 +465,7 @@
       .signup-hero-left p { margin-left: auto; margin-right: auto; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       .benefits-grid { grid-template-columns: 1fr; }
+      .founding-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
     @media (max-width: 540px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -456,6 +579,59 @@
           <span class="feature-text">Regular feature updates</span>
         </div>
       </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FOUNDING 100 -->
+<section class="founding" id="founding">
+  <div class="founding-grid">
+
+    <div class="founding-left rev">
+      <p class="label">Limited offer</p>
+      <h2 class="h2">The Founding One Hundred.</h2>
+      <p>
+        We're hand-selecting just 100 pet businesses to join Genera before we open to the public.
+        This isn't a generic trial — it's a founding partnership. You'll get three months completely
+        free, a direct line to our team, and a genuine say in how the product develops.
+      </p>
+      <p>
+        27 spots have already been claimed. Once we reach 100, applications close permanently.
+        Founding members lock in their pricing forever — whatever tier you start on, that's your
+        rate for life, regardless of future price increases.
+      </p>
+      <ul class="found-list">
+        <li>3 months completely free — no credit card required</li>
+        <li>One-on-one onboarding call with the Genera founders</li>
+        <li>Priority access to every new feature as it launches</li>
+        <li>Your feedback directly shapes the product roadmap</li>
+        <li>Founding member pricing locked in forever</li>
+        <li>Dedicated support line — straight to the team, not a helpdesk</li>
+      </ul>
+      <a href="mailto:info@generasoftware.com?subject=Founding%20One%20Hundred%20Application"
+         class="btn btn-outline-d btn-lg">
+        Apply for a Founding Spot →
+      </a>
+    </div>
+
+    <div class="founding-card rev d2">
+      <p class="spots-lbl">Spots remaining</p>
+      <div class="spots-num">73</div>
+      <p class="spots-total">out of 100 founding members</p>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+      <p class="progress-note">27 spots claimed</p>
+      <p>
+        Applications close once we reach 100.<br>
+        Be part of shaping Genera from the very start.
+      </p>
+      <a href="mailto:info@generasoftware.com?subject=Founding%20One%20Hundred%20Application"
+         class="btn btn-gold btn-lg">
+        Claim Your Spot Now
+      </a>
     </div>
 
   </div>
