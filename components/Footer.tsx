@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ConsentPreferencesLink from "@/components/ConsentPreferencesLink";
 import { REGISTER_URL } from "@/lib/urls";
 
 const PAW_LOGO =
@@ -124,6 +125,11 @@ function FooterColumn({
             </Link>
           </li>
         ))}
+        {title === "Legal" && (
+          <li>
+            <ConsentPreferencesLink />
+          </li>
+        )}
       </ul>
     </div>
   );

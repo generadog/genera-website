@@ -3,6 +3,7 @@ import { Inter, Poppins, Caveat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BookDemoModal from "@/components/BookDemoModal";
+import ConsentManager from "@/components/ConsentManager";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -136,10 +137,12 @@ export default function RootLayout({
             __html: JSON.stringify([organizationSchema, softwareSchema]),
           }}
         />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <BookDemoModal />
+        <ConsentManager>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <BookDemoModal />
+        </ConsentManager>
       </body>
     </html>
   );

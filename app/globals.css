@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@c15t/nextjs/styles.css";
 
 /* ─────────────────────────────────────────────────────────────
    Design tokens — lifted from the original Genera CSS so every
@@ -77,6 +78,12 @@
 @layer base {
   :root {
     color-scheme: light;
+    --c15t-primary: #003E45;
+    --c15t-primary-hover: #005060;
+    --c15t-text-on-primary: #ffffff;
+    --c15t-font-family: var(--font-inter);
+    --c15t-radius-lg: 8px;
+    --c15t-radius-md: 8px;
   }
 
   html, body {
