@@ -236,10 +236,10 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 520px;
+  max-width: 300px;
   background: #fff;
-  border-radius: 22px;
-  padding: 16px 16px 64px;
+  border-radius: 18px;
+  padding: 14px 14px 50px;
   transform: rotate(-2.5deg);
   animation: polaroidFloat 5s ease-in-out infinite;
   box-shadow:
@@ -262,7 +262,10 @@
   overflow: hidden;
   border-radius: 12px;
   width: 100%;
-  height: 400px;
+  height: 280px;
+}
+@media (min-width: 768px) {
+  .polaroid-window { height: 400px; }
 }
 .polaroid-window img {
   width: 100%;
@@ -274,13 +277,24 @@
 .polaroid-caption {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 64px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-caveat);
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #666;
   letter-spacing: 0.3px;
+}
+@media (min-width: 768px) {
+  .polaroid {
+    max-width: 520px;
+    border-radius: 22px;
+    padding: 16px 16px 64px;
+  }
+  .polaroid-caption {
+    height: 64px;
+    font-size: 1.2rem;
+  }
 }

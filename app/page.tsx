@@ -130,18 +130,18 @@ export default function Home() {
       <Reveal />
 
       {/* ── Hero ───────────────────────────────────────────────── */}
-      <section className="relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-br from-forest via-forest-mid to-[#007080] px-8 pt-20 pb-12">
+      <section className="relative flex flex-col overflow-hidden bg-gradient-to-br from-forest via-forest-mid to-[#007080] px-6 pt-8 pb-0 md:min-h-screen md:px-8 md:pt-20 md:pb-12">
         {/* decorative blobs */}
         <span
           aria-hidden
-          className="pointer-events-none absolute -top-20 -right-24 h-[420px] w-[420px] rounded-[63%_37%_54%_46%/55%_48%_52%_45%] bg-gold/10"
+          className="pointer-events-none absolute -top-20 -right-24 h-[260px] w-[260px] rounded-[63%_37%_54%_46%/55%_48%_52%_45%] bg-gold/10 md:h-[420px] md:w-[420px]"
         />
         <span
           aria-hidden
-          className="pointer-events-none absolute bottom-0 -left-20 h-[280px] w-[280px] rounded-[40%_60%_55%_45%/48%_52%_48%_52%] bg-white/5"
+          className="pointer-events-none absolute bottom-0 -left-20 h-[200px] w-[200px] rounded-[40%_60%_55%_45%/48%_52%_48%_52%] bg-white/5 md:h-[280px] md:w-[280px]"
         />
 
-        {/* Right-justified backdrop image — above the gradient, below the text */}
+        {/* Right-justified backdrop image — desktop only */}
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-2/4 md:block">
           <Image
             src="/images/hero-background-fun.png"
@@ -154,13 +154,13 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 mx-auto flex w-full max-w-[1160px] flex-col items-center text-center md:items-start md:text-left">
-          <div className="mb-4 inline-flex animate-[fadeInUp_0.6s_ease_both] items-center gap-2 rounded-full border-2 border-gold/50 bg-white/10 px-4 py-1.5 font-caveat text-[1.05rem] font-bold text-gold-soft">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1160px] flex-col items-start text-left md:items-start md:text-left">
+          <div className="mb-4 inline-flex animate-[fadeInUp_0.6s_ease_both] items-center gap-2 rounded-full border-2 border-gold/50 bg-white/10 px-3.5 py-1 font-caveat text-[1rem] font-bold text-gold-soft md:px-4 md:py-1.5 md:text-[1.05rem]">
             <Paw className="h-[1.1em] w-[1.1em]" /> Built by a daycare, for
             daycares
           </div>
 
-          <h1 className="rev mb-4 animate-[fadeInUp_0.7s_0.1s_ease_both] text-white [font-size:clamp(2.4rem,4vw,3.6rem)]">
+          <h1 className="rev mb-3 animate-[fadeInUp_0.7s_0.1s_ease_both] text-white text-[2.25rem] md:mb-4 md:[font-size:clamp(2.4rem,4vw,3.6rem)]">
             Software that{" "}
             <span className="squig">
               actually
@@ -172,26 +172,41 @@ export default function Home() {
             gets your daycare.
           </h1>
 
-          <p className="rev d1 mb-6 max-w-[460px] animate-[fadeInUp_0.7s_0.2s_ease_both] text-[0.98rem] text-white/80">
+          <p className="rev d1 mb-5 max-w-[300px] animate-[fadeInUp_0.7s_0.2s_ease_both] text-[0.98rem] text-white/80 md:mb-6 md:max-w-[460px]">
             Built by the people behind Duncan&apos;s Dog Co — 15 years in the
             industry, finally turning that experience into software that makes
             your business run the way it should.
           </p>
 
-          <div className="rev d2 mb-4 flex flex-wrap justify-center gap-3.5 md:justify-start">
+          <div className="rev d2 mb-4 flex w-full flex-col gap-2.5 md:w-auto md:flex-row md:flex-wrap md:justify-start md:gap-3.5">
             <a
               href={REGISTER_URL}
-              className="btn btn-gold btn-lg"
+              className="btn btn-gold btn-lg w-full justify-center md:w-auto"
             >
               Start Your 3-Month Free Trial
             </a>
-            <BookDemoButton className="btn btn-forest btn-lg">
+            <BookDemoButton className="hidden btn btn-forest btn-lg md:inline-flex">
               Book a Demo
             </BookDemoButton>
           </div>
 
-          {/* Floating UI cards — left-aligned within the same nav-width container */}
-          <div className="rev d3 mt-20 flex w-full flex-wrap items-start justify-center gap-5 md:justify-start">
+          {/* Mobile-only artwork panel — sits inside the hero, full-width below CTAs */}
+          <div
+            aria-hidden
+            className="-mx-6 mt-0 w-[calc(100%+3rem)] px-3.5 pt-4 md:hidden"
+          >
+            <Image
+              src="/images/hero-background-fun.png"
+              alt=""
+              width={1200}
+              height={900}
+              className="block h-auto w-full drop-shadow-[0_12px_24px_rgba(0,0,0,0.18)]"
+              priority
+            />
+          </div>
+
+          {/* Desktop floating UI cards — hidden on mobile (stats become their own section) */}
+          <div className="rev d3 mt-20 hidden w-full flex-wrap items-start justify-center gap-5 md:flex md:justify-start">
             <div className="relative min-w-[200px] max-w-[220px] animate-[var(--animate-float-1)] overflow-hidden rounded-[20px_16px_22px_18px/18px_22px_16px_20px] bg-gradient-to-br from-[#E8856A] to-[#C96B52] px-7 pt-7 pb-5 text-left shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
               <span className="absolute right-4 top-4 rounded-full bg-white/35 px-2.5 py-0.5 text-[0.72rem] font-bold tracking-wide text-white backdrop-blur-sm">
                 Today
@@ -241,20 +256,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Stats (mobile only) ────────────────────────────────── */}
+      <section
+        aria-label="At a glance"
+        className="grid grid-cols-3 gap-2.5 bg-gradient-to-b from-[#007080] to-forest-mid px-4 pt-5 pb-7 md:hidden"
+      >
+        <div className="relative overflow-hidden rounded-[18px_14px_20px_16px/16px_20px_14px_18px] bg-gradient-to-br from-[#E8856A] to-[#C96B52] px-3 pt-3.5 pb-3 text-left text-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]">
+          <span className="absolute right-2 top-2 rounded-full bg-white/35 px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider">
+            Today
+          </span>
+          <div className="mt-1.5 mb-1 font-poppins text-[1.9rem] font-extrabold leading-none">
+            12
+          </div>
+          <p className="font-poppins text-[0.78rem] font-bold leading-tight">
+            Bookings, handled.
+          </p>
+          <p className="mt-0.5 text-[0.65rem] leading-snug opacity-80">
+            A calendar that fills itself.
+          </p>
+        </div>
+        <div className="relative overflow-hidden rounded-[18px_14px_20px_16px/16px_20px_14px_18px] bg-gradient-to-br from-[#6B9E72] to-[#4E7D58] px-3 pt-3.5 pb-3 text-left text-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]">
+          <span className="absolute right-2 top-2 rounded-full bg-white/35 px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider">
+            Paid
+          </span>
+          <div className="mt-1.5 mb-1 font-poppins text-[1.55rem] font-extrabold leading-none">
+            £840
+          </div>
+          <p className="font-poppins text-[0.78rem] font-bold leading-tight">
+            In the bank.
+          </p>
+          <p className="mt-0.5 text-[0.65rem] leading-snug opacity-80">
+            No chasing. Ever.
+          </p>
+        </div>
+        <div className="relative overflow-hidden rounded-[18px_14px_20px_16px/16px_20px_14px_18px] bg-gradient-to-br from-[#E8A430] to-[#C8880A] px-3 pt-3.5 pb-3 text-left text-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]">
+          <span className="absolute right-2 top-2 rounded-full bg-white/35 px-1.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider">
+            Routed
+          </span>
+          <div className="mt-1.5 mb-1 font-poppins text-[1.9rem] font-extrabold leading-none">
+            3
+          </div>
+          <p className="font-poppins text-[0.78rem] font-bold leading-tight">
+            Pickups sorted.
+          </p>
+          <p className="mt-0.5 text-[0.65rem] leading-snug opacity-80">
+            Drag-and-drop routes.
+          </p>
+        </div>
+      </section>
+
       {/* ── Trust bar ──────────────────────────────────────────── */}
       <div
         aria-label="Businesses using Genera"
-        className="overflow-hidden border-y-2 border-teal-mid bg-teal-soft py-8"
+        className="overflow-hidden border-y-2 border-teal-mid bg-teal-soft py-4 md:py-8"
       >
-        <p className="mb-2 text-center font-caveat text-[1.3rem] text-forest">
+        <p className="mb-2 text-center font-caveat text-[1.1rem] text-forest md:text-[1.3rem]">
           Businesses already on board
         </p>
         <div className="overflow-hidden">
-          <div className="flex w-max animate-[var(--animate-scroll-x)] gap-4">
+          <div className="flex w-max animate-[var(--animate-scroll-x)] gap-2 md:gap-4">
             {[...TRUST_CHIPS, ...TRUST_CHIPS].map((c, i) => (
               <span
                 key={i}
-                className="shrink-0 whitespace-nowrap rounded-full border-2 border-teal-mid bg-white px-4 py-1.5 text-[0.88rem] font-semibold text-forest"
+                className="shrink-0 whitespace-nowrap rounded-full border-2 border-teal-mid bg-white px-3.5 py-1.5 text-[0.78rem] font-semibold text-forest md:px-4 md:text-[0.88rem]"
               >
                 {c}
               </span>
@@ -262,79 +326,99 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-center gap-2 px-6 font-caveat text-[1.15rem] text-forest">
+        <div className="mt-3 flex items-center justify-center gap-2 px-6 font-caveat text-[0.95rem] text-forest md:mt-6 md:text-[1.15rem]">
           <span className="tracking-widest text-gold">★★★★★</span>
           <span>Trusted by pet businesses across the UK</span>
         </div>
       </div>
 
       {/* ── Pain points ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-cream to-teal-soft px-8 py-22">
+      <section className="relative overflow-hidden bg-gradient-to-b from-cream to-teal-soft px-6 py-12 md:px-8 md:py-22">
         <Paw
-          className="absolute right-[3%] top-[5%] h-[5rem] w-[5rem] animate-[var(--animate-wobble)] text-forest opacity-10"
+          className="absolute right-[3%] top-[5%] hidden h-[5rem] w-[5rem] animate-[var(--animate-wobble)] text-forest opacity-10 md:block"
         />
 
         <div className="mx-auto max-w-[1160px]">
-          <div className="rev mb-14 text-center">
+          <div className="rev mb-6 text-center md:mb-14">
             <p className="eyebrow">Sound familiar?</p>
-            <h2>
+            <h2 className="text-[1.7rem] md:text-[length:inherit]">
               Running a daycare is
               <br />
               harder than it looks.
             </h2>
-            <p className="mx-auto mt-3 max-w-[560px] text-[1.15rem] text-ink-soft">
+            <p className="mx-auto mt-2 max-w-[560px] text-[0.95rem] text-ink-soft md:mt-3 md:text-[1.15rem]">
               You got into this for the dogs — not the admin. We&apos;ll handle
               the rest.
             </p>
           </div>
-          <div className="relative grid gap-6 md:grid-cols-3">
+          <div className="relative grid gap-3.5 md:grid-cols-3 md:gap-6">
+            {/* Desktop overlap illustration */}
             <Image
               src="/images/confused.png"
               alt=""
               aria-hidden
               width={720}
               height={720}
-              className="pointer-events-none absolute -bottom-24 -left-40 z-0 h-[28rem] w-auto -rotate-6 select-none drop-shadow-[0_10px_24px_rgba(0,62,69,0.22)] md:-bottom-32 md:-left-48 md:h-[36rem]"
+              className="pointer-events-none absolute -bottom-24 -left-40 z-0 hidden h-[28rem] w-auto -rotate-6 select-none drop-shadow-[0_10px_24px_rgba(0,62,69,0.22)] md:block md:-bottom-32 md:-left-48 md:h-[36rem]"
             />
             {PAIN_POINTS.map((p, i) => (
               <div
                 key={p.n}
-                className={`rev d${i + 1} relative z-10 rounded-2xl border border-teal-mid/60 bg-white/80 p-7 shadow-[0_4px_20px_rgba(0,62,69,0.06)] backdrop-blur-sm`}
+                className={`rev d${i + 1} relative z-10 rounded-2xl border border-teal-mid/60 bg-white/80 p-5 shadow-[0_4px_20px_rgba(0,62,69,0.06)] backdrop-blur-sm md:p-7`}
               >
-                <div className="mb-3 font-poppins text-[2.2rem] font-extrabold leading-none text-gold/70">
+                <div className="mb-1.5 font-poppins text-[1.6rem] font-extrabold leading-none text-gold/70 md:mb-3 md:text-[2.2rem]">
                   {p.n}
                 </div>
-                <h3 className="mb-2 font-poppins text-lg font-bold">
+                <h3 className="mb-1.5 font-poppins text-base font-bold md:mb-2 md:text-lg">
                   {p.title}
                 </h3>
-                <p className="text-ink-soft">{p.body}</p>
+                <p className="text-[0.92rem] text-ink-soft md:text-base">
+                  {p.body}
+                </p>
               </div>
             ))}
+          </div>
+
+          {/* Mobile-only illustration panel — sits below the cards */}
+          <div className="relative mt-7 flex items-end justify-center md:hidden">
+            <span className="absolute right-[10%] top-2 z-10 -rotate-[4deg] whitespace-nowrap rounded-full border-2 border-teal-mid bg-white px-3.5 py-1.5 font-caveat text-base text-forest shadow-[0_4px_14px_rgba(0,62,69,0.08)]">
+              …sound about right?
+            </span>
+            <Image
+              src="/images/confused.png"
+              alt=""
+              aria-hidden
+              width={720}
+              height={720}
+              className="pointer-events-none pr-20 h-[230px] w-auto -rotate-3 select-none drop-shadow-[0_10px_18px_rgba(0,62,69,0.18)]"
+            />
           </div>
         </div>
       </section>
 
       {/* ── Product showcase ────────────────────────────────────── */}
-      <section className="bg-cream px-8 py-22">
+      <section className="bg-cream px-4 py-12 md:px-8 md:py-22">
         <div className="mx-auto max-w-[1160px]">
-          <div className="rev mb-14 text-center">
+          <div className="rev mb-4 text-center md:mb-14">
             <p className="eyebrow">See it in action</p>
-            <h2>A dashboard built for busy people.</h2>
+            <h2 className="text-[1.55rem] md:text-[length:inherit]">
+              A dashboard built for busy people.
+            </h2>
           </div>
 
           <div className="rev d1 relative mx-auto max-w-[1000px]">
-            <p className="mb-3 text-center font-caveat text-xl text-forest">
+            <p className="mb-3 text-center font-caveat text-[1.05rem] text-forest md:text-xl">
               Your 9am Monday, sorted ☕
             </p>
 
-            <div className="relative overflow-hidden rounded-3xl border border-teal-mid/50 bg-white shadow-[0_24px_60px_rgba(0,62,69,0.16)]">
-              <div className="flex items-center gap-3 border-b border-cream-dark bg-cream px-4 py-3">
+            <div className="relative overflow-hidden rounded-2xl border border-teal-mid/50 bg-white shadow-[0_18px_40px_rgba(0,62,69,0.16)] md:rounded-3xl md:shadow-[0_24px_60px_rgba(0,62,69,0.16)]">
+              <div className="flex items-center gap-2 border-b border-cream-dark bg-cream px-2.5 py-2 md:gap-3 md:px-4 md:py-3">
                 <div className="flex gap-1.5">
-                  <span className="block h-3 w-3 rounded-full bg-[#FF6058]" />
-                  <span className="block h-3 w-3 rounded-full bg-[#FFBD2E]" />
-                  <span className="block h-3 w-3 rounded-full bg-[#28C940]" />
+                  <span className="block h-[9px] w-[9px] rounded-full bg-[#FF6058] md:h-3 md:w-3" />
+                  <span className="block h-[9px] w-[9px] rounded-full bg-[#FFBD2E] md:h-3 md:w-3" />
+                  <span className="block h-[9px] w-[9px] rounded-full bg-[#28C940] md:h-3 md:w-3" />
                 </div>
-                <div className="rounded-md bg-white px-3 py-1 text-xs text-ink-soft">
+                <div className="flex-1 rounded-md bg-white px-2.5 py-1 text-center text-[0.7rem] text-ink-soft md:flex-none md:text-xs">
                   app.generasoftware.com
                 </div>
               </div>
@@ -352,26 +436,26 @@ export default function Home() {
       </section>
 
       {/* ── Features ────────────────────────────────────────────── */}
-      <section id="features" className="bg-white px-8 py-22">
+      <section id="features" className="bg-white px-6 py-13 md:px-8 md:py-22">
         <div className="mx-auto max-w-[1160px]">
-          <div className="rev mb-14 text-center">
+          <div className="rev mb-6 text-center md:mb-14">
             <p className="eyebrow">What Genera does</p>
-            <h2>
+            <h2 className="text-[1.6rem] md:text-[length:inherit]">
               Everything you need.
               <br />
               Nothing you don&apos;t.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
             {FEATURES.map((f, i) => (
               <div
                 key={f.title}
-                className={`rev d${(i % 6) + 1} rounded-2xl border border-cream-dark bg-cream p-8 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,62,69,0.08)]`}
+                className={`rev d${(i % 6) + 1} rounded-2xl border border-cream-dark bg-cream p-5 transition-transform hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,62,69,0.08)] md:p-8`}
               >
-                <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-forest text-gold">
+                <div className="mb-3 grid h-[42px] w-[42px] place-items-center rounded-xl bg-forest text-gold md:mb-4 md:h-12 md:w-12">
                   <svg
-                    width={22}
-                    height={22}
+                    width={20}
+                    height={20}
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -382,10 +466,12 @@ export default function Home() {
                     {f.icon}
                   </svg>
                 </div>
-                <h3 className="mb-2 font-poppins text-lg font-bold">
+                <h3 className="mb-1.5 font-poppins text-base font-bold md:mb-2 md:text-lg">
                   {f.title}
                 </h3>
-                <p className="text-ink-soft">{f.body}</p>
+                <p className="text-[0.9rem] text-ink-soft md:text-base">
+                  {f.body}
+                </p>
               </div>
             ))}
           </div>
@@ -395,71 +481,73 @@ export default function Home() {
       {/* ── Founding 100 ────────────────────────────────────────── */}
       <section
         id="founding"
-        className="relative overflow-hidden bg-forest-dark px-8 py-22 text-white"
+        className="relative overflow-hidden bg-forest-dark px-6 py-13 text-white md:px-8 md:py-22"
       >
-        <div className="mx-auto grid max-w-[1160px] gap-12 md:grid-cols-2 md:items-center">
+        <div className="mx-auto grid max-w-[1160px] gap-6 md:grid-cols-2 md:items-center md:gap-12">
           <div className="rev">
             <p className="eyebrow !text-gold">Limited offer</p>
-            <h2 className="!text-white">The Founding One Hundred.</h2>
-            <p className="mt-4 text-white/80">
+            <h2 className="text-[1.7rem] !text-white md:text-[length:inherit]">
+              The Founding One Hundred.
+            </h2>
+            <p className="mt-2.5 text-[0.95rem] text-white/80 md:mt-4 md:text-base">
               We&apos;re selecting 100 pet businesses to join Genera before we
               open to the public. You&apos;ll get three months completely free,
               priority onboarding and a direct line to our team.
             </p>
-            <ul className="mt-5 flex flex-col gap-2.5">
+            <ul className="mt-4 flex flex-col gap-2 md:mt-5 md:gap-2.5">
               {FOUNDING_PERKS.map((p) => (
-                <li key={p} className="flex items-start gap-2 text-white/85">
+                <li
+                  key={p}
+                  className="flex items-start gap-2 text-[0.92rem] text-white/85 md:text-base"
+                >
                   <span className="mt-0.5 text-gold">✓</span> {p}
                 </li>
               ))}
             </ul>
-            <a
-              href={REGISTER_URL}
-              className="btn btn-outline-w btn-lg mt-6"
-            >
-              Apply for a Founding Spot →
-            </a>
           </div>
 
-          <div className="rev d2 relative rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm md:pr-64">
+          <div className="rev d2 relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm md:overflow-visible md:p-8 md:pr-64">
             <Image
               src="/images/welcome.png"
               alt=""
               aria-hidden
               width={720}
               height={720}
-              className="pointer-events-none absolute -right-32 -bottom-16 z-20 h-80 w-auto select-none drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)] md:-right-40 md:h-[28rem]"
+              className="pointer-events-none absolute -right-6 bottom-0 z-0 h-[180px] w-auto select-none drop-shadow-[0_8px_20px_rgba(0,0,0,0.3)] md:-right-40 md:-bottom-16 md:z-20 md:h-[28rem] md:drop-shadow-[0_12px_28px_rgba(0,0,0,0.35)]"
             />
-            <p className="text-sm uppercase tracking-widest text-gold-soft">
+            <p className="relative z-10 text-[0.7rem] uppercase tracking-widest text-gold-soft md:text-sm">
               Spots remaining
             </p>
-            <div className="mt-2 font-poppins text-[5rem] font-extrabold leading-none text-gold">
+            <div className="relative z-10 mt-1 font-poppins text-[3.6rem] font-extrabold leading-none text-gold md:mt-2 md:text-[5rem]">
               73
             </div>
-            <p className="mb-5 text-white/70">out of 100 founding members</p>
-            <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+            <p className="relative z-10 mb-4 text-[0.85rem] text-white/70 md:mb-5 md:text-base">
+              out of 100 founding members
+            </p>
+            <div className="relative z-10 h-[7px] w-full overflow-hidden rounded-full bg-white/10 md:h-2">
               <div className="h-full w-[27%] rounded-full bg-gold" />
             </div>
-            <p className="mt-2 text-sm text-white/60">
+            <p className="relative z-10 mt-2 text-[0.78rem] text-white/60 md:text-sm">
               27 spots claimed so far
             </p>
-            <p className="mt-4 text-white/80">
+            <p className="relative z-10 mt-3.5 max-w-[200px] text-[0.9rem] text-white/80 md:mt-4 md:max-w-none md:text-base">
               Applications close once we reach 100. Be part of shaping the
               product from the start.
             </p>
             <a
               href={REGISTER_URL}
-              className="btn btn-gold btn-lg mt-5"
+              className="btn btn-gold btn-lg relative z-10 mt-4 md:mt-5"
             >
               Claim Your Spot Now
             </a>
           </div>
+
         </div>
       </section>
 
       {/* ── Story teaser ────────────────────────────────────────── */}
-      <section id="story" className="bg-white px-8 py-22">
-        <div className="mx-auto grid max-w-[1160px] gap-12 md:grid-cols-2 md:items-center">
+      <section id="story" className="bg-white px-6 py-13 md:px-8 md:py-22">
+        <div className="mx-auto grid max-w-[1160px] gap-7 md:grid-cols-2 md:items-center md:gap-12">
           <div className="rev flex justify-center">
             <div className="polaroid">
               <div className="polaroid-window">
@@ -481,24 +569,24 @@ export default function Home() {
 
           <div className="rev d2">
             <p className="eyebrow">Why we built this</p>
-            <h2>
+            <h2 className="text-[1.55rem] md:text-[length:inherit]">
               From a dog walking round in South West London to software used
               across the UK.
             </h2>
-            <p className="mt-4 text-ink-soft">
+            <p className="mt-2.5 text-[0.95rem] text-ink-soft md:mt-4 md:text-base">
               Duncan and Jess started with a dog walking round in 2011. Fifteen
               years later they&apos;re running a licensed daycare — and they
               still couldn&apos;t find software that actually understood how a
               pet business works.
             </p>
-            <p className="mt-3 text-ink-soft">
+            <p className="mt-3 text-[0.95rem] text-ink-soft md:text-base">
               So they built Genera themselves. Every feature exists because they
               needed it. Every decision is made by people who&apos;ve been on
               the end of a very muddy lead.
             </p>
             <Link
               href="/our-story"
-              className="mt-5 inline-flex items-center gap-2 font-poppins font-bold text-forest hover:text-gold"
+              className="mt-3.5 inline-flex items-center gap-2 font-poppins font-bold text-forest hover:text-gold md:mt-5"
             >
               Read the full story →
             </Link>
@@ -507,25 +595,27 @@ export default function Home() {
       </section>
 
       {/* ── Final CTA ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-forest via-forest-mid to-[#007080] px-8 py-22 text-center text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-forest via-forest-mid to-[#007080] px-6 py-14 text-center text-white md:px-8 md:py-22">
         <div className="relative z-10 mx-auto max-w-[760px]">
-          <h2 className="!text-white">Ready when you are.</h2>
-          <p className="mt-4 text-white/80">
+          <h2 className="text-[1.65rem] !text-white md:text-[length:inherit]">
+            Ready when you are.
+          </h2>
+          <p className="mt-2.5 text-[0.95rem] text-white/80 md:mt-4 md:text-base">
             Start your 3-month free trial today. No credit card required. No
             commitment. Just the tools you need to run your business properly.
           </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3.5">
+          <div className="mt-5 flex flex-col gap-2.5 md:mt-7 md:flex-row md:flex-wrap md:justify-center md:gap-3.5">
             <a
               href={REGISTER_URL}
-              className="btn btn-gold btn-lg"
+              className="btn btn-gold btn-lg w-full justify-center md:w-auto"
             >
               Start Your Free Trial
             </a>
-            <BookDemoButton className="btn btn-outline-w btn-lg">
+            <BookDemoButton className="btn btn-outline-w btn-lg w-full justify-center md:w-auto">
               Book a Demo
             </BookDemoButton>
           </div>
-          <p className="mt-5 font-caveat text-lg text-white/70">
+          <p className="mt-3.5 font-caveat text-base text-white/70 md:mt-5 md:text-lg">
             No credit card &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; Cancel
             anytime
           </p>
