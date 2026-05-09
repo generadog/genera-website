@@ -11,18 +11,26 @@ import {
   createQuestion,
   deleteQuestion,
   deleteSubmission,
+  markAllSubmissionsRead,
+  markSubmissionRead,
   moveQuestion,
   updateForm,
 } from "../../actions";
 
 export const dynamic = "force-dynamic";
 
+type Tab = "submissions" | "build";
+
 export default async function EditFormPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ tab?: string }>;
 }) {
   const { id } = await params;
+  const { tab: tabRaw } = await searchParams;
+  const tab: Tab = tabRaw === "build" ? "build" : "submissions";
   const supabase = getAdminSupabase();
 
   const { data: form } = await supabase
@@ -44,7 +52,7 @@ export default async function EditFormPage({
   const { data: submissions } = await supabase
     .from("form_submissions")
     .select(
-      "id, created_at, payload, webhook_status, webhook_status_code, email_status",
+      "id, created_at, payload, webhook_status, webhook_status_code, email_status, read_at",
     )
     .eq("form_id", id)
     .order("created_at", { ascending: false })
@@ -76,14 +84,51 @@ export default async function EditFormPage({
     is_optional: q.is_optional,
   }));
 
+  const submissionsCount = (submissions ?? []).length;
+
+  const TABS: Array<{ key: Tab; label: string; count?: number }> = [
+    { key: "submissions", label: "Submissions", count: submissionsCount },
+    { key: "build", label: "Build" },
+  ];
+
   return (
-    <div className="space-y-10">
+    <div className="space-y-8">
       <PageHeader
         title={form.name}
         description={`Slug: /api/forms/${form.slug}`}
         back={{ href: "/admin/forms", label: "Back to forms" }}
       />
 
+      <nav className="-mt-3 flex gap-1 border-b border-teal-mid">
+        {TABS.map((t) => {
+          const active = tab === t.key;
+          const href =
+            t.key === "submissions"
+              ? `/admin/forms/${form.id}/edit`
+              : `/admin/forms/${form.id}/edit?tab=${t.key}`;
+          return (
+            <Link
+              key={t.key}
+              href={href}
+              className={`-mb-px border-b-2 px-4 py-2.5 text-sm font-semibold transition-colors ${
+                active
+                  ? "border-forest text-forest"
+                  : "border-transparent text-ink-soft hover:text-ink"
+              }`}
+            >
+              {t.label}
+              {typeof t.count === "number" && (
+                <span className="ml-2 rounded-full bg-cream px-2 py-0.5 text-xs font-normal text-ink-soft">
+                  {t.count}
+                </span>
+              )}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {tab === "build" && (
+      <>
       <section className="rounded-2xl border border-teal-mid bg-white p-6">
         <h2 className="mb-1 font-poppins text-lg font-extrabold text-ink">
           Settings
@@ -291,15 +336,40 @@ export default async function EditFormPage({
           </table>
         </div>
       </section>
+      </>
+      )}
 
+      {tab === "submissions" && (
       <section className="rounded-2xl border border-teal-mid bg-white p-6">
-        <div className="mb-5">
-          <h2 className="font-poppins text-lg font-extrabold text-ink">
-            Submissions
-          </h2>
-          <p className="text-sm text-ink-soft">
-            Last 100 entries. Webhook delivery status is recorded per row.
-          </p>
+        <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h2 className="font-poppins text-lg font-extrabold text-ink">
+              Submissions
+            </h2>
+            <p className="text-sm text-ink-soft">
+              Last 100 entries.{" "}
+              {(() => {
+                const unread = (submissions ?? []).filter((s) => !s.read_at).length;
+                const total = (submissions ?? []).length;
+                return `${unread} unread · ${total - unread} read`;
+              })()}
+            </p>
+          </div>
+          {(submissions ?? []).some((s) => !s.read_at) && (
+            <form
+              action={async () => {
+                "use server";
+                await markAllSubmissionsRead(form.id);
+              }}
+            >
+              <button
+                type="submit"
+                className="rounded-lg border border-teal-mid bg-white px-3 py-2 text-xs font-semibold text-ink hover:border-forest"
+              >
+                Mark all as read
+              </button>
+            </form>
+          )}
         </div>
 
         <div className="overflow-hidden rounded-xl border border-cream-dark">
@@ -323,7 +393,12 @@ export default async function EditFormPage({
                   webhookStatus={s.webhook_status}
                   webhookCode={s.webhook_status_code ?? null}
                   emailStatus={s.email_status}
+                  readAt={s.read_at}
                   questions={qSummaries}
+                  onToggleRead={async (sid: string, read: boolean) => {
+                    "use server";
+                    await markSubmissionRead(form.id, sid, read);
+                  }}
                 />
               ))}
               {(submissions ?? []).length === 0 && (
@@ -370,6 +445,7 @@ export default async function EditFormPage({
           </form>
         )}
       </section>
+      )}
     </div>
   );
 }

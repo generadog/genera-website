@@ -4,8 +4,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-const NAV = [
+type NavItem = {
+  kind: "item";
+  href: string;
+  label: string;
+  icon: React.ReactNode;
+};
+type NavHeading = { kind: "heading"; label: string };
+type NavEntry = NavItem | NavHeading;
+
+const NAV: NavEntry[] = [
   {
+    kind: "item",
     href: "/admin",
     label: "Dashboard",
     icon: (
@@ -18,6 +28,7 @@ const NAV = [
     ),
   },
   {
+    kind: "item",
     href: "/admin/analytics",
     label: "Analytics",
     icon: (
@@ -30,27 +41,7 @@ const NAV = [
     ),
   },
   {
-    href: "/admin/logos",
-    label: "Trust Logos",
-    icon: (
-      <>
-        <rect x="3" y="3" width="18" height="18" rx="3" />
-        <path d="m3 14 5-5 4 4 5-5 4 4" />
-        <circle cx="9" cy="9" r="1.5" />
-      </>
-    ),
-  },
-  {
-    href: "/admin/founding-spots",
-    label: "Founding Spots",
-    icon: (
-      <>
-        <path d="M12 2 4 6v6c0 5 3.4 9.5 8 10 4.6-.5 8-5 8-10V6l-8-4Z" />
-        <path d="m9 12 2 2 4-4" />
-      </>
-    ),
-  },
-  {
+    kind: "item",
     href: "/admin/forms",
     label: "Forms",
     icon: (
@@ -63,6 +54,41 @@ const NAV = [
     ),
   },
   {
+    kind: "item",
+    href: "/admin/support",
+    label: "Support",
+    icon: (
+      <>
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+      </>
+    ),
+  },
+  { kind: "heading", label: "Content" },
+  {
+    kind: "item",
+    href: "/admin/founding-spots",
+    label: "Founding Spots",
+    icon: (
+      <>
+        <path d="M12 2 4 6v6c0 5 3.4 9.5 8 10 4.6-.5 8-5 8-10V6l-8-4Z" />
+        <path d="m9 12 2 2 4-4" />
+      </>
+    ),
+  },
+  {
+    kind: "item",
+    href: "/admin/logos",
+    label: "Trust Logos",
+    icon: (
+      <>
+        <rect x="3" y="3" width="18" height="18" rx="3" />
+        <path d="m3 14 5-5 4 4 5-5 4 4" />
+        <circle cx="9" cy="9" r="1.5" />
+      </>
+    ),
+  },
+  {
+    kind: "item",
     href: "/admin/blog",
     label: "Blog",
     icon: (
@@ -73,6 +99,7 @@ const NAV = [
     ),
   },
   {
+    kind: "item",
     href: "/admin/faqs",
     label: "FAQs",
     icon: (
@@ -83,18 +110,13 @@ const NAV = [
       </>
     ),
   },
-  {
-    href: "/admin/support",
-    label: "Support",
-    icon: (
-      <>
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-      </>
-    ),
-  },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({
+  badges = {},
+}: {
+  badges?: Record<string, number>;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -165,15 +187,26 @@ export default function Sidebar() {
         </div>
 
         <nav className="flex flex-col gap-1 p-4">
-          {NAV.map((item) => {
+          {NAV.map((entry, i) => {
+            if (entry.kind === "heading") {
+              return (
+                <p
+                  key={`h-${i}`}
+                  className="mt-4 px-3 pb-1 pt-2 text-[11px] font-semibold uppercase tracking-wider text-cream/50"
+                >
+                  {entry.label}
+                </p>
+              );
+            }
             const active =
-              item.href === "/admin"
+              entry.href === "/admin"
                 ? pathname === "/admin"
-                : pathname.startsWith(item.href);
+                : pathname.startsWith(entry.href);
+            const badge = badges[entry.href] ?? 0;
             return (
               <Link
-                key={item.href}
-                href={item.href}
+                key={entry.href}
+                href={entry.href}
                 onClick={() => setOpen(false)}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
                   active
@@ -191,9 +224,14 @@ export default function Sidebar() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 >
-                  {item.icon}
+                  {entry.icon}
                 </svg>
-                {item.label}
+                <span className="flex-1">{entry.label}</span>
+                {badge > 0 && (
+                  <span className="inline-flex min-w-[1.25rem] items-center justify-center rounded-full bg-gold px-1.5 py-0.5 text-[10px] font-bold leading-none text-ink">
+                    {badge > 99 ? "99+" : badge}
+                  </span>
+                )}
               </Link>
             );
           })}

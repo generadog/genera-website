@@ -311,6 +311,34 @@ export async function moveQuestion(
 
 // ----- submissions --------------------------------------------------------
 
+export async function markSubmissionRead(
+  formId: string,
+  submissionId: string,
+  read: boolean,
+) {
+  const supabase = getAdminSupabase();
+  const { error } = await supabase
+    .from("form_submissions")
+    .update({ read_at: read ? new Date().toISOString() : null })
+    .eq("id", submissionId)
+    .eq("form_id", formId);
+  if (error) throw new Error(error.message);
+  revalidatePath(`/admin/forms/${formId}/edit`);
+  revalidatePath(`/admin/forms`);
+}
+
+export async function markAllSubmissionsRead(formId: string) {
+  const supabase = getAdminSupabase();
+  const { error } = await supabase
+    .from("form_submissions")
+    .update({ read_at: new Date().toISOString() })
+    .eq("form_id", formId)
+    .is("read_at", null);
+  if (error) throw new Error(error.message);
+  revalidatePath(`/admin/forms/${formId}/edit`);
+  revalidatePath(`/admin/forms`);
+}
+
 export async function deleteSubmission(formId: string, submissionId: string) {
   const supabase = getAdminSupabase();
   const { error } = await supabase

@@ -173,6 +173,7 @@ export type Database = {
           ip_address: string | null;
           user_agent: string | null;
           created_at: string;
+          read_at: string | null;
         };
         Insert: {
           id?: string;
@@ -187,6 +188,7 @@ export type Database = {
           ip_address?: string | null;
           user_agent?: string | null;
           created_at?: string;
+          read_at?: string | null;
         };
         Update: {
           id?: string;
@@ -201,6 +203,7 @@ export type Database = {
           ip_address?: string | null;
           user_agent?: string | null;
           created_at?: string;
+          read_at?: string | null;
         };
         Relationships: [];
       };

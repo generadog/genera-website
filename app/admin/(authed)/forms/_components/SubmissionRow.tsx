@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 type Props = {
   id: string;
@@ -9,7 +9,9 @@ type Props = {
   webhookStatus: string;
   webhookCode: number | null;
   emailStatus: string;
+  readAt: string | null;
   questions: { key: string; label: string }[];
+  onToggleRead: (id: string, read: boolean) => Promise<void>;
 };
 
 export default function SubmissionRow({
@@ -19,9 +21,14 @@ export default function SubmissionRow({
   webhookStatus,
   webhookCode,
   emailStatus,
+  readAt,
   questions,
+  onToggleRead,
 }: Props) {
   const [expanded, setExpanded] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const isRead = !!readAt;
+
   const summaryParts: string[] = [];
   for (const q of questions.slice(0, 2)) {
     const v = String(payload[q.key] ?? "").trim();
@@ -29,23 +36,52 @@ export default function SubmissionRow({
   }
   const summary = summaryParts.join(" · ") || "—";
 
+  function handleExpand() {
+    setExpanded((v) => {
+      const next = !v;
+      // Auto-mark read on first expand
+      if (next && !isRead) {
+        startTransition(() => {
+          onToggleRead(id, true);
+        });
+      }
+      return next;
+    });
+  }
+
   return (
     <>
-      <tr className="hover:bg-cream">
+      <tr
+        className={
+          isRead ? "hover:bg-cream" : "bg-amber-50/40 hover:bg-amber-50"
+        }
+      >
         <td className="px-5 py-3 align-middle text-ink-soft">
-          {new Date(createdAt).toLocaleString("en-GB", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
+          <div className="flex items-center gap-2">
+            {!isRead && (
+              <span
+                className="inline-block h-2 w-2 shrink-0 rounded-full bg-amber-500"
+                title="Unread"
+              />
+            )}
+            <span>
+              {new Date(createdAt).toLocaleString("en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </span>
+          </div>
         </td>
         <td className="px-5 py-3 align-middle">
           <button
             type="button"
-            onClick={() => setExpanded((v) => !v)}
-            className="text-left font-medium text-ink hover:text-forest"
+            onClick={handleExpand}
+            className={`text-left ${
+              isRead ? "font-medium text-ink" : "font-semibold text-ink"
+            } hover:text-forest`}
           >
             {summary}
           </button>
@@ -57,13 +93,27 @@ export default function SubmissionRow({
           <StatusPill kind="email" status={emailStatus} />
         </td>
         <td className="px-5 py-3 text-right align-middle">
-          <button
-            type="button"
-            onClick={() => setExpanded((v) => !v)}
-            className="rounded-md border border-teal-mid px-3 py-1.5 text-xs font-semibold text-ink hover:border-forest"
-          >
-            {expanded ? "Hide" : "View"}
-          </button>
+          <div className="inline-flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() =>
+                startTransition(() => {
+                  onToggleRead(id, !isRead);
+                })
+              }
+              disabled={isPending}
+              className="rounded-md border border-teal-mid px-2.5 py-1.5 text-xs font-semibold text-ink-soft hover:border-forest hover:text-ink disabled:opacity-50"
+            >
+              {isRead ? "Mark unread" : "Mark read"}
+            </button>
+            <button
+              type="button"
+              onClick={handleExpand}
+              className="rounded-md border border-teal-mid px-3 py-1.5 text-xs font-semibold text-ink hover:border-forest"
+            >
+              {expanded ? "Hide" : "View"}
+            </button>
+          </div>
         </td>
       </tr>
       {expanded && (
