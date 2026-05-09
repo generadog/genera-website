@@ -59,6 +59,18 @@ const NAV = [
       </>
     ),
   },
+  {
+    href: "/admin/analytics",
+    label: "Analytics",
+    icon: (
+      <>
+        <line x1="3" y1="20" x2="21" y2="20" />
+        <rect x="6" y="11" width="3" height="7" rx="0.5" />
+        <rect x="11" y="6" width="3" height="12" rx="0.5" />
+        <rect x="16" y="14" width="3" height="4" rx="0.5" />
+      </>
+    ),
+  },
 ];
 
 export default function Sidebar() {
