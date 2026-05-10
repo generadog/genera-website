@@ -29,7 +29,7 @@ const softwareSchema = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "GBP",
-    description: "3-month free trial available for new customers.",
+    description: "Founding 100 onboarding available for new customers.",
   },
 };
 

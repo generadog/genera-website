@@ -3,7 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { LOGIN_URL, REGISTER_URL } from "@/lib/urls";
+import BookDemoButton from "@/components/BookDemoButton";
+import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
+import { LOGIN_URL } from "@/lib/urls";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -103,12 +105,11 @@ export default function Navbar() {
             >
               Login
             </Link>
-            <Link
-              href={REGISTER_URL}
+            <BookDemoButton
               className="inline-flex items-center rounded-full bg-gold px-5 py-2 font-poppins text-[0.85rem] font-bold text-ink shadow-[0_4px_14px_rgba(255,168,0,0.35)] transition-shadow hover:shadow-[0_6px_22px_rgba(255,168,0,0.5)]"
             >
-              Start Free Trial
-            </Link>
+              {FOUNDING_100_CTA_LABEL}
+            </BookDemoButton>
           </div>
 
           <button
@@ -163,13 +164,10 @@ export default function Navbar() {
           </Link>
         ))}
         <div className="mt-6 flex flex-col gap-3">
-          <Link
-            href={REGISTER_URL}
+          <BookDemoButton
             className="btn btn-gold btn-lg"
             onClick={() => setOpen(false)}
-          >
-            Start Free Trial
-          </Link>
+          />
           <Link
             href={LOGIN_URL}
             className="btn btn-outline-w btn-lg"
@@ -177,16 +175,6 @@ export default function Navbar() {
           >
             Login
           </Link>
-          <button
-            type="button"
-            className="btn btn-outline-w btn-lg"
-            onClick={() => {
-              setOpen(false);
-              window.dispatchEvent(new Event("book-demo:open"));
-            }}
-          >
-            Book a Demo
-          </button>
         </div>
       </div>
     </>

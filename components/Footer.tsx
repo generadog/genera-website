@@ -1,15 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import ConsentPreferencesLink from "@/components/ConsentPreferencesLink";
-import { REGISTER_URL } from "@/lib/urls";
+import { FOUNDING_100_CTA_LABEL, FOUNDING_100_SECTION_URL } from "@/lib/cta";
 
 const PAW_LOGO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png";
 
 const PRODUCT_LINKS = [
   { href: "/features", label: "Features" },
-  { href: REGISTER_URL, label: "Free Trial" },
-  { href: "/sign-up", label: "Founding 100" },
+  { href: FOUNDING_100_SECTION_URL, label: FOUNDING_100_CTA_LABEL },
   { href: "/faqs", label: "FAQs" },
   { href: "/blog", label: "Blog" },
 ];

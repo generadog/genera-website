@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import BookDemoButton from "@/components/BookDemoButton";
-import { REGISTER_URL } from "@/lib/urls";
+import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
 
 type Feature = {
   eyebrow: string;
@@ -256,9 +256,9 @@ export default function FeaturesClient() {
               gimmicks. Just the tools that actually make your day easier.
             </p>
             <div className="mt-7">
-              <a href={REGISTER_URL} className="btn btn-gold btn-lg">
-                Start 3-Month Free Trial
-              </a>
+              <BookDemoButton className="btn btn-gold btn-lg">
+                {FOUNDING_100_CTA_LABEL}
+              </BookDemoButton>
             </div>
           </div>
           <div aria-hidden>
@@ -281,15 +281,12 @@ export default function FeaturesClient() {
         <div className="rev mx-auto max-w-[760px]">
           <h2 className="!text-white">Ready to see how Genera fits your business?</h2>
           <p className="mx-auto mt-4 max-w-[560px] text-white/80">
-            Start your 3-month free trial or book a walkthrough with our team.
-            No pressure. No hard sell. Just a conversation.
+            Apply for the Founding 100 and we&apos;ll guide you through the next
+            step from one simple form.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a href={REGISTER_URL} className="btn btn-gold btn-lg">
-              Start 3-Month Free Trial
-            </a>
-            <BookDemoButton className="btn btn-outline-w btn-lg">
-              Book a Demo
+            <BookDemoButton className="btn btn-gold btn-lg">
+              {FOUNDING_100_CTA_LABEL}
             </BookDemoButton>
           </div>
         </div>

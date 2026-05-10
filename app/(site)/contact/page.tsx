@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Reveal from "@/components/Reveal";
 import BookDemoButton from "@/components/BookDemoButton";
 import { createMetadata } from "@/lib/seo";
-import { REGISTER_URL } from "@/lib/urls";
+import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: "Contact Genera for Dog Daycare Software Demos",
+    title: "Contact Genera About the Founding 100",
     description:
-      "Contact Genera to book a dog daycare software demo, ask about pet business management features, or get help starting your free trial.",
+      "Contact Genera to ask about pet business management features, joining the Founding 100, or getting help with your next step.",
     path: "/contact",
   }),
 };
@@ -23,12 +23,12 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[860px] text-center">
           <p className="eyebrow !text-gold-soft">Get in Touch</p>
           <h1 className="mt-2 text-white">
-            Book a demo. Ask a question. Or just{" "}
+            Join the Founding 100. Ask a question. Or just{" "}
             <em className="text-gold">say hello.</em>
           </h1>
           <p className="mx-auto mt-5 max-w-[600px] text-white/80">
-            We are a small team and we read every message. Whether you want a
-            walkthrough of Genera, have a question about pricing, or just want
+            We are a small team and we read every message. Whether you want to
+            join the Founding 100, have a question about pricing, or just want
             to chat about running a pet business, we are here.
           </p>
         </div>
@@ -54,8 +54,9 @@ export default function ContactPage() {
             </div>
             <h2>Drop us an email</h2>
             <p className="mx-auto mt-3 max-w-[520px] text-ink-soft">
-              Whether you want a demo, have a question, or just want to know
-              more about Genera — we are here. We reply within one working day.
+              Whether you want to join the Founding 100, have a question, or
+              just want to know more about Genera — we are here. We reply
+              within one working day.
             </p>
             <a
               href="mailto:info@generasoftware.com"
@@ -65,14 +66,8 @@ export default function ContactPage() {
             </a>
             <div className="mt-7 flex flex-wrap justify-center gap-3">
               <BookDemoButton className="btn btn-gold btn-lg">
-                Book a Demo
+                {FOUNDING_100_CTA_LABEL}
               </BookDemoButton>
-              <a
-                href={REGISTER_URL}
-                className="btn btn-outline-d btn-lg"
-              >
-                Start Free Trial
-              </a>
             </div>
           </div>
 

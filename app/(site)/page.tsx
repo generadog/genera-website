@@ -4,7 +4,7 @@ import { createMetadata } from "@/lib/seo";
 import Paw from "@/components/Paw";
 import Reveal from "@/components/Reveal";
 import BookDemoButton from "@/components/BookDemoButton";
-import { REGISTER_URL } from "@/lib/urls";
+import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
 import { getPublicSupabase } from "@/lib/supabase/server";
 
 export const revalidate = 60;
@@ -191,14 +191,10 @@ export default async function Home() {
           </p>
 
           <div className="rev d2 mb-4 flex w-full flex-col gap-2.5 md:w-auto md:flex-row md:flex-wrap md:justify-start md:gap-3.5">
-            <a
-              href={REGISTER_URL}
+            <BookDemoButton
               className="btn btn-gold btn-lg w-full justify-center md:w-auto"
             >
-              Start Your 3-Month Free Trial
-            </a>
-            <BookDemoButton className="hidden btn btn-forest btn-lg md:inline-flex">
-              Book a Demo
+              {FOUNDING_100_CTA_LABEL}
             </BookDemoButton>
           </div>
 
@@ -566,10 +562,9 @@ export default async function Home() {
               product from the start.
             </p>
             <BookDemoButton
-              slug="founding-hundred"
               className="btn btn-gold btn-lg relative z-10 mt-4 md:mt-5"
             >
-              Claim Your Spot Now
+              {FOUNDING_100_CTA_LABEL}
             </BookDemoButton>
           </div>
 
@@ -632,18 +627,14 @@ export default async function Home() {
             Ready when you are.
           </h2>
           <p className="mt-2.5 text-[0.95rem] text-white/80 md:mt-4 md:text-base">
-            Start your 3-month free trial today. No credit card required. No
-            commitment. Just the tools you need to run your business properly.
+            Apply for the Founding 100 today. No credit card required. No
+            commitment. Just one simple path to see if Genera is right for you.
           </p>
           <div className="mt-5 flex flex-col gap-2.5 md:mt-7 md:flex-row md:flex-wrap md:justify-center md:gap-3.5">
-            <a
-              href={REGISTER_URL}
+            <BookDemoButton
               className="btn btn-gold btn-lg w-full justify-center md:w-auto"
             >
-              Start Your Free Trial
-            </a>
-            <BookDemoButton className="btn btn-outline-w btn-lg w-full justify-center md:w-auto">
-              Book a Demo
+              {FOUNDING_100_CTA_LABEL}
             </BookDemoButton>
           </div>
           <p className="mt-3.5 font-caveat text-base text-white/70 md:mt-5 md:text-lg">

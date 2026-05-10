@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FOUNDING_100_FORM_SLUG } from "@/lib/cta";
 
 type Status = "idle" | "loading" | "submitting" | "sent" | "error";
 
@@ -25,7 +26,7 @@ type FormSchema = {
   questions: Question[];
 };
 
-const DEFAULT_SLUG = "book-demo";
+const DEFAULT_SLUG = FOUNDING_100_FORM_SLUG;
 
 export default function BookDemoModal() {
   const [open, setOpen] = useState(false);

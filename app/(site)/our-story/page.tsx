@@ -3,7 +3,7 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import BookDemoButton from "@/components/BookDemoButton";
 import { createMetadata } from "@/lib/seo";
-import { REGISTER_URL } from "@/lib/urls";
+import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -86,12 +86,9 @@ export default function OurStoryPage() {
             ))}
           </div>
 
-          <a
-            href={REGISTER_URL}
-            className="btn btn-gold btn-lg mt-8"
-          >
-            Start Free Trial &nbsp;→
-          </a>
+          <BookDemoButton className="btn btn-gold btn-lg mt-8">
+            {FOUNDING_100_CTA_LABEL}
+          </BookDemoButton>
         </div>
 
         <div className="relative min-h-[320px] overflow-hidden bg-forest-dark md:min-h-0">
@@ -316,18 +313,12 @@ export default function OurStoryPage() {
             <em className="text-gold">like yours</em>
           </h2>
           <p className="mx-auto mt-4 max-w-[560px] text-white/80">
-            See how it can help you spend less time on admin and more time
-            doing what you love.
+            Apply for the Founding 100 and we&apos;ll help you decide whether
+            Genera is the right fit.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a
-              href={REGISTER_URL}
-              className="btn btn-gold btn-lg"
-            >
-              Start 3-Month Free Trial
-            </a>
-            <BookDemoButton className="btn btn-outline-w btn-lg">
-              Book a Demo
+            <BookDemoButton className="btn btn-gold btn-lg">
+              {FOUNDING_100_CTA_LABEL}
             </BookDemoButton>
           </div>
         </div>
