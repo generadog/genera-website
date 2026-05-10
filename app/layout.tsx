@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Caveat } from "next/font/google";
 import Script from "next/script";
+import ConsentProvider from "@/components/ConsentProvider";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics/ga-measurement-id";
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
-
-const GA_MEASUREMENT_ID = "G-B1NT2G0G7X";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -100,19 +100,36 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} ${caveat.variable}`}
     >
       <body className="font-[family-name:var(--font-inter)] text-base leading-relaxed">
-        {children}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
+        <ConsentProvider>
+          <Script id="ga-consent-default" strategy="beforeInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                wait_for_update: 2000,
+              });
+            `}
+          </Script>
+          {children}
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `}
+          </Script>
+        </ConsentProvider>
       </body>
     </html>
   );
