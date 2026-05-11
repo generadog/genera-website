@@ -30,14 +30,15 @@ function formatDate(iso: string | null): string {
 
 export default async function BlogPage() {
   const supabase = getPublicSupabase();
+  const nowIso = new Date().toISOString();
   const { data: posts } = await supabase
     .from("blog_posts")
     .select(
       "id, slug, title, excerpt, category, author_name, published_at, read_time_minutes, cover_image_url",
     )
     .eq("is_published", true)
-    .lte("published_at", new Date().toISOString())
-    .order("published_at", { ascending: false });
+    .or(`published_at.is.null,published_at.lte.${nowIso}`)
+    .order("published_at", { ascending: false, nullsFirst: false });
 
   return (
     <>

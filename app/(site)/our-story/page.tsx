@@ -86,9 +86,6 @@ export default function OurStoryPage() {
             ))}
           </div>
 
-          <BookDemoButton className="btn btn-gold btn-lg mt-8">
-            {FOUNDING_100_CTA_LABEL}
-          </BookDemoButton>
         </div>
 
         <div className="relative min-h-[320px] overflow-hidden bg-forest-dark md:min-h-0">

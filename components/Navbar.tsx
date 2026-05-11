@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import BookDemoButton from "@/components/BookDemoButton";
-import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
 import { LOGIN_URL } from "@/lib/urls";
 
 const NAV_LINKS = [
@@ -86,7 +85,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="ml-auto hidden items-center gap-1 md:flex">
+          <div className="mx-auto hidden items-center gap-1 md:flex">
             {NAV_LINKS.map((l) => (
               <Link
                 key={l.href}
@@ -98,7 +97,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="ml-4 hidden items-center gap-2 md:flex">
+          <div className="hidden items-center gap-2 md:flex">
             <Link
               href={LOGIN_URL}
               className="rounded-full px-3 py-1.5 text-[0.85rem] font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
@@ -108,7 +107,7 @@ export default function Navbar() {
             <BookDemoButton
               className="inline-flex items-center rounded-full bg-gold px-5 py-2 font-poppins text-[0.85rem] font-bold text-ink shadow-[0_4px_14px_rgba(255,168,0,0.35)] transition-shadow hover:shadow-[0_6px_22px_rgba(255,168,0,0.5)]"
             >
-              {FOUNDING_100_CTA_LABEL}
+              Join Genera
             </BookDemoButton>
           </div>
 

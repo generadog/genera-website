@@ -78,7 +78,7 @@ export default async function BlogPostPage({
     )
     .eq("slug", slug)
     .eq("is_published", true)
-    .lte("published_at", new Date().toISOString())
+    .or(`published_at.is.null,published_at.lte.${new Date().toISOString()}`)
     .maybeSingle();
 
   if (!post) notFound();
@@ -92,7 +92,7 @@ export default async function BlogPostPage({
         <div className="mx-auto max-w-[820px]">
           <Link
             href="/blog"
-            className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-gold-soft transition-colors hover:text-gold"
+            className="mb-6 flex w-fit items-center gap-2 text-sm font-semibold text-gold-soft transition-colors hover:text-gold"
           >
             <svg
               viewBox="0 0 24 24"

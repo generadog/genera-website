@@ -196,6 +196,12 @@ export default async function Home() {
             >
               {FOUNDING_100_CTA_LABEL}
             </BookDemoButton>
+            <BookDemoButton
+              slug="book-demo"
+              className="btn btn-outline-w btn-lg w-full justify-center md:w-auto"
+            >
+              Book a Demo
+            </BookDemoButton>
           </div>
 
           {/* Mobile-only artwork panel — sits inside the hero, full-width below CTAs */}

@@ -68,6 +68,12 @@ export default function ContactPage() {
               <BookDemoButton className="btn btn-gold btn-lg">
                 {FOUNDING_100_CTA_LABEL}
               </BookDemoButton>
+              <BookDemoButton
+                slug="book-demo"
+                className="btn btn-outline-d btn-lg"
+              >
+                Book a Demo
+              </BookDemoButton>
             </div>
           </div>
 
