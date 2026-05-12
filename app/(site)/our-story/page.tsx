@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import BookDemoButton from "@/components/BookDemoButton";
 import { createMetadata } from "@/lib/seo";
 import { FOUNDING_100_CTA_LABEL } from "@/lib/cta";
+import { getPublicSupabase } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -14,6 +15,8 @@ export const metadata: Metadata = {
   }),
 };
 
+export const revalidate = 60;
+
 const STATS = [
   { num: "2011", label: "Where it\nall started" },
   { num: "15+", label: "Years in\npet care" },
@@ -21,38 +24,63 @@ const STATS = [
   { num: "UK", label: "Based &\nsupported" },
 ];
 
-const TIMELINE = [
+type TimelineEntry = {
+  year: string;
+  body: string;
+  image_url: string | null;
+};
+
+const FALLBACK_TIMELINE: TimelineEntry[] = [
   {
     year: "2011",
-    text: "Duncan and Jess start Duncan's Dog Co as a dog walking service in South West London.",
+    body: "Duncan and Jess start Duncan's Dog Co as a dog walking service in South West London.",
+    image_url: null,
   },
   {
     year: "2013",
-    text: "The business expands into full daycare services as demand grows.",
+    body: "The business expands into full daycare services as demand grows.",
+    image_url: null,
   },
   {
     year: "2016",
-    text: "Move to a beautiful woodland facility in Surrey. The team grows significantly.",
+    body: "Move to a beautiful woodland facility in Surrey. The team grows significantly.",
+    image_url: null,
   },
   {
     year: "2018",
-    text: "The missed booking. A loyal customer (and developer) offers to build a solution.",
+    body: "The missed booking. A loyal customer (and developer) offers to build a solution.",
+    image_url: null,
   },
   {
     year: "2019",
-    text: "The first prototype of Genera goes live at Duncan's Dog Co.",
+    body: "The first prototype of Genera goes live at Duncan's Dog Co.",
+    image_url: null,
   },
   {
     year: "2022",
-    text: "After years of refinement, Genera is opened up to other pet businesses.",
+    body: "After years of refinement, Genera is opened up to other pet businesses.",
+    image_url: null,
   },
   {
     year: "Today",
-    text: "Genera is used by pet businesses across the UK. And we are just getting started.",
+    body: "Genera is used by pet businesses across the UK. And we are just getting started.",
+    image_url: null,
   },
 ];
 
-export default function OurStoryPage() {
+async function getTimeline(): Promise<TimelineEntry[]> {
+  const supabase = getPublicSupabase();
+  const { data, error } = await supabase
+    .from("story_timeline")
+    .select("year, body, image_url")
+    .eq("is_visible", true)
+    .order("sort_order", { ascending: true });
+  if (error || !data || data.length === 0) return FALLBACK_TIMELINE;
+  return data;
+}
+
+export default async function OurStoryPage() {
+  const timeline = await getTimeline();
   return (
     <>
       <Reveal />
@@ -224,24 +252,40 @@ export default function OurStoryPage() {
           <h2 className="rev mb-14 text-center">The journey so far</h2>
 
           <ol className="relative flex flex-col gap-8 before:absolute before:left-1/2 before:top-0 before:h-full before:w-px before:-translate-x-1/2 before:bg-teal-mid">
-            {TIMELINE.map((t, i) => {
-              const isLast = i === TIMELINE.length - 1;
+            {timeline.map((t, i) => {
+              const isLast = i === timeline.length - 1;
               const left = i % 2 === 0;
               return (
                 <li
-                  key={t.year}
+                  key={`${t.year}-${i}`}
                   className={`rev d${(i % 6) + 1} relative grid grid-cols-[1fr_auto_1fr] items-center gap-4`}
                 >
-                  <div className={left ? "" : "invisible"}>
-                    {left && <TimelineCard year={t.year} text={t.text} />}
+                  <div className="flex justify-end">
+                    {left ? (
+                      <TimelineCard year={t.year} text={t.body} />
+                    ) : (
+                      <PolaroidPlaceholder
+                        year={t.year}
+                        imageUrl={t.image_url}
+                        side="left"
+                      />
+                    )}
                   </div>
                   <span
                     className={`relative z-10 block h-4 w-4 rounded-full ring-4 ring-cream ${
                       isLast ? "bg-forest" : "bg-gold"
                     }`}
                   />
-                  <div className={left ? "invisible" : ""}>
-                    {!left && <TimelineCard year={t.year} text={t.text} />}
+                  <div className="flex justify-start">
+                    {!left ? (
+                      <TimelineCard year={t.year} text={t.body} />
+                    ) : (
+                      <PolaroidPlaceholder
+                        year={t.year}
+                        imageUrl={t.image_url}
+                        side="right"
+                      />
+                    )}
                   </div>
                 </li>
               );
@@ -331,6 +375,54 @@ function TimelineCard({ year, text }: { year: string; text: string }) {
         {year}
       </div>
       <p className="mt-1 text-ink-soft">{text}</p>
+    </div>
+  );
+}
+
+function PolaroidPlaceholder({
+  year,
+  imageUrl,
+  side,
+}: {
+  year: string;
+  imageUrl: string | null;
+  side: "left" | "right";
+}) {
+  const rotation = side === "left" ? "-rotate-[4deg]" : "rotate-[4deg]";
+  return (
+    <div
+      className={`group inline-block ${rotation} bg-white p-2 pb-7 shadow-[0_14px_30px_rgba(0,62,69,0.18)] transition-transform duration-300 hover:rotate-0 hover:scale-[1.04] md:p-3 md:pb-10`}
+    >
+      <div className="relative flex h-24 w-28 items-center justify-center overflow-hidden bg-linear-to-br from-cream-dark via-cream to-teal-mid/30 md:h-36 md:w-44">
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={`Photo from ${year}`}
+            fill
+            sizes="(max-width: 768px) 112px, 176px"
+            className="object-cover"
+          />
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-7 w-7 text-forest/40 md:h-10 md:w-10"
+            aria-hidden="true"
+          >
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <circle cx="12" cy="12" r="3.2" />
+            <path d="M8 5l1.5-2h5L16 5" />
+          </svg>
+        )}
+      </div>
+      <p className="mt-2 text-center font-caveat text-lg leading-none text-forest md:text-xl">
+        {year}
+      </p>
     </div>
   );
 }

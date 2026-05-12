@@ -110,6 +110,18 @@ const NAV: NavEntry[] = [
       </>
     ),
   },
+  {
+    kind: "item",
+    href: "/admin/our-story",
+    label: "Our Story",
+    icon: (
+      <>
+        <path d="M12 6v15" />
+        <path d="M5 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H5z" />
+        <path d="M19 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z" />
+      </>
+    ),
+  },
 ];
 
 export default function Sidebar({

@@ -35,7 +35,7 @@ function randomId(): string {
 
 export async function uploadToBucket(
   file: File,
-  bucket: "logos" | "blog-images",
+  bucket: "logos" | "blog-images" | "story-images",
 ): Promise<string> {
   if (!ALLOWED_MIME.has(file.type)) {
     throw new Error(
@@ -68,7 +68,7 @@ export async function uploadToBucket(
 
 export function pathFromPublicUrl(
   url: string,
-  bucket: "logos" | "blog-images",
+  bucket: "logos" | "blog-images" | "story-images",
 ): string | null {
   const marker = `/storage/v1/object/public/${bucket}/`;
   const idx = url.indexOf(marker);
@@ -78,7 +78,7 @@ export function pathFromPublicUrl(
 
 export async function deleteFromBucket(
   url: string,
-  bucket: "logos" | "blog-images",
+  bucket: "logos" | "blog-images" | "story-images",
 ): Promise<void> {
   const path = pathFromPublicUrl(url, bucket);
   if (!path) return;

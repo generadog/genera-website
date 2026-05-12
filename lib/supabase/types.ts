@@ -378,6 +378,39 @@ export type Database = {
         };
         Relationships: [];
       };
+      story_timeline: {
+        Row: {
+          created_at: string;
+          id: string;
+          year: string;
+          body: string;
+          image_url: string | null;
+          sort_order: number;
+          is_visible: boolean;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          id?: string;
+          year: string;
+          body: string;
+          image_url?: string | null;
+          sort_order?: number;
+          is_visible?: boolean;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          id?: string;
+          year?: string;
+          body?: string;
+          image_url?: string | null;
+          sort_order?: number;
+          is_visible?: boolean;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
@@ -396,4 +429,5 @@ export type FormSubmission = Database["public"]["Tables"]["form_submissions"]["R
 export type QuestionType = FormQuestion["type"];
 export type SupportTicket = Database["public"]["Tables"]["support_tickets"]["Row"];
 export type SupportTicketStatus = SupportTicket["status"];
+export type StoryTimelineEntry = Database["public"]["Tables"]["story_timeline"]["Row"];
 export type SupportTicketCategory = SupportTicket["category"];
