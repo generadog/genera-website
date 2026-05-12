@@ -9,7 +9,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: SITE_NAME,
   url: SITE_URL,
-  logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png",
+  logo: `${SITE_URL}/images/genera-svg.svg`,
   sameAs: [
     "https://www.instagram.com/generadogsoftware/",
     "https://www.tiktok.com/@genera.dog",

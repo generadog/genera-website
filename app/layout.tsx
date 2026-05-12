@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png",
+    icon: "/images/genera-svg.svg",
   },
 };
 

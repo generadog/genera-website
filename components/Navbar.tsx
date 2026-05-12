@@ -15,8 +15,7 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-const PAW_LOGO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png";
+const PAW_LOGO = "/images/genera-svg.svg";
 
 export default function Navbar() {
   const [stuck, setStuck] = useState(false);

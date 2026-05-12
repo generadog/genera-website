@@ -3,8 +3,7 @@ import Link from "next/link";
 import ConsentPreferencesLink from "@/components/ConsentPreferencesLink";
 import { FOUNDING_100_CTA_LABEL, FOUNDING_100_SECTION_URL } from "@/lib/cta";
 
-const PAW_LOGO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663478487775/BxxxoQYbhf7FnKvPttwktS/genera-paw-fixed_92730de9.png";
+const PAW_LOGO = "/images/genera-svg.svg";
 
 const PRODUCT_LINKS = [
   { href: "/features", label: "Features" },
